@@ -1,0 +1,53 @@
+<section data-module="solutionsservicespanel" {% include 'helpers/section_id.twig' with { 'id': content.layout_settings.section_options.id } %} class="solutions-and-service-list {% include 'helpers/section_classes.twig' with { 'options': content.layout_settings.section_options } %}">
+  <div class="container">
+    {% if content.layout == "full-width" %}
+    <div class="row">
+      <div class="col col--4@xl colour--black">
+        <p class="h2">{{ content.intro.title }}</p>
+        {% include 'molecules/button_group.twig' with {
+          'buttons': content.intro.buttons
+        } %}
+      </div>
+      <div class="col col--6@xl">
+        {{ content.intro.description }}
+      </div>
+    </div>
+    {% endif %}
+    <div class="row row--pad-top-xl row--pad-bot">
+      {% if content.layout == "two-col" %}
+        <div class="col col--4@xl colour--black">
+          <div class="solutions-and-service-list__header">
+            <p class="h2">{{ content.intro.title }}</p>
+            {{ content.intro.description }}
+            {% include 'molecules/button_group.twig' with {
+              'buttons': content.intro.buttons
+            } %}
+          </div>
+        </div>
+      {% endif %}
+
+      {{ (content.layout == "two-col") ? '<div class="col col--8@xl"><div class="row">' : '' }}
+        {% for solution in content.solutions %}
+
+
+          {% if content.layout == "two-col" %}
+          <div class="col col--{{ (loop.last and loop.index is odd) ? '12' : '6' }}@med solutions-and-service-list__col">
+          {% else %}
+          <div class="col col--6@med col--4@xl solutions-and-service-list__col">
+          {% endif %}
+
+            {{ (content.layout == "full-width") ? '<div class="solutions-and-service-list__offset-helper">' : '' }}
+
+            {% include 'molecules/solutions_service_card.twig' with {
+              'content': solution
+            } %}
+
+            {{ (content.layout == "full-width") ? '</div>' : '' }}
+
+          </div>
+        {% endfor %}
+      {{ (content.layout == "two-col") ? '</div></div>' : '' }}
+    </div>
+  </div>
+  {% include 'helpers/styled_background.twig' with { 'options': content.layout_settings.section_options } %}
+</section>

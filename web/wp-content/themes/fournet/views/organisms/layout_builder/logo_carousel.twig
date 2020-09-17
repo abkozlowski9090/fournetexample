@@ -1,0 +1,42 @@
+<section {% include 'helpers/section_id.twig' with { 'id': content.layout_settings.section_options.id } %} class="logo-carousel {% include 'helpers/section_classes.twig' with { 'options': content.layout_settings.section_options } %}">
+  <div class="container">
+    <div class="row">
+      <div class="col col--6@xl">
+        {{ (content.title) ? '<p class="h2">'~ content.title ~'</p>' : '' }}
+        {{ (content.intro) ? '<p>' ~ content.intro ~ '</p>' : '' }}
+      </div>
+    </div>
+    <div class="row row--justify-center">
+      <div class="col col--12@med text--center">
+        <div class="logo-carousel__carousel {{ (content.logo_carousel|length < 6) ? 'logo-carousel__carousel--centered mobile-only-carousel' : '' }}" data-module="logocarousel">
+          {% for logo in content.logo_carousel %}
+            <div class="carousel-cell">
+              {% include 'atoms/picture.twig' with {
+                'alt': logo.image.caption,
+                'images': {
+                  'large': logo.image.sizes['large'],
+                }
+              } %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    {% if content.buttons %}
+      <div class="row">
+        <div class="col col--12@med text--center">
+          {% include 'molecules/button_group.twig' with {
+            'buttons': content.buttons,
+            'class_list': 'button_group--center'
+          } %}
+        </div>
+      </div>
+    {% endif %}
+
+  </div>
+
+  {% include 'helpers/styled_background.twig' with { 'options': content.layout_settings.section_options } %}
+
+
+</section>

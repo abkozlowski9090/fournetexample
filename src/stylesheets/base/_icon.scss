@@ -1,0 +1,44 @@
+.icon {
+  display: block;
+
+  &--icon {
+    &-logo {
+      width: 150px;
+      height: 45px;
+      transition: transform $speed $easing;
+
+      transform-origin: top left;
+    }
+  }
+
+  &--icon-facebook svg {
+    fill: $white;
+    width: 20px!important;
+    height: 20px!important;
+  }
+  &--icon-twitter svg {
+    fill: $white;
+    width: 20px!important;
+    height: 20px!important;
+  }
+  &--icon-youtube svg {
+    fill: $white;
+    width: 20px!important;
+    height: 20px!important;
+  }
+
+  &--icon-linkedin svg {
+    fill: $white;
+    width: 20px!important;
+    height: 20px!important;
+  }
+
+  &--icon--icon-crown svg {
+    height: 45px!important;
+  }
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}

@@ -1,0 +1,40 @@
+{#
+	include 'molecules/nav.twig'
+#}
+
+<nav class="nav-main" role="navigation">
+	<ul class="nav-main__items reset-list">
+	{% for item in menu.get_items %}
+		<li class="nav-main__item {{item.classes | join(' ')}}">
+			<a class="nav-main__link {{ (item.current) ? 'nav-main__link--active' : '' }}" href="{{item.link}}">{{item.title}}</a>
+			{% if item.get_children %}
+				<div class="nav-main__sub">
+					<ul class="nav-main__items nav-main__items--drop reset-list">
+					{% for child in item.get_children %}
+						<li class="nav-drop-item {{ (item.get_children|length > 10) ? 'nav-drop-item--small' : '' }}">
+							<a class="nav-main__link {{ (child.current) ? 'nav-main__link--active' : '' }}" href="{{child.get_link}}"><span>{{child.title}}</span></a>
+						</li>
+					{% endfor %}
+					</ul>
+				</div>
+
+			{% endif %}
+		</li>
+	{% endfor %}
+	<li class="nav-main__item">
+		<a href="https://webabillity.co.uk/2.7.262_en-GB/4NET01.aspx" target="_blank" class="site-header__login">
+      {% include 'atoms/icon.twig' with { 'icon': 'icon-login' } %}
+    </a>
+	</li>
+	<li class="nav-main__item">
+		<div class="site-header__cta-button">
+      {% include 'atoms/btn.twig' with {
+        'link': {
+          'url': '/contact/',
+          'title': 'Get in touch'
+        }
+      } %}
+    </div>
+	</li>
+	</ul>
+</nav>

@@ -1,0 +1,26 @@
+<section {% include 'helpers/section_id.twig' with { 'id': content.layout_settings.section_options.id } %} data-module="teamcarousel" class="team-carousel {% include 'helpers/section_classes.twig' with { 'options': content.layout_settings.section_options } %}">
+  <div class="container">
+    {% if content.title or content.intro %}
+    <div class="row row--pad-bot">
+      <div class="col col--4@xl">
+        {{ (content.title) ? '<p class="h2">'~ content.title ~'</p>' : '' }}
+      </div>
+      <div class="col col--8@xl">
+        <div class="team-carousel__intro">
+          {{ (content.intro) ? content.intro : '' }}
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+    <div class="team-carousel__carousel js-team-profile-carousel">
+      {% for profile in content.team_profiles %}
+        <div class="team-carousel__carousel-cell {{ (loop.index == 1) ? 'team-carousel__carousel-cell--first' : '' }} carousel-cell">
+          {% include 'molecules/team_profile_card.twig' with { 'content': profile } %}
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+  {% include 'helpers/styled_background.twig' with { 'options': content.layout_settings.section_options } %}
+</section>

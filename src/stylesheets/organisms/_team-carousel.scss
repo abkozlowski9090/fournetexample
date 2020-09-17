@@ -1,0 +1,91 @@
+.team-carousel {
+  &__intro {
+    @include media(">xl") {
+      column-count: 2;
+      column-gap: $gridGutter;
+    }
+  }
+  &__carousel {
+    width: 100%;
+    @include media("<med") {
+      width: 100vw;
+      transform: translateX(-#{$gridGutterMob});
+    }
+    @include media(">xwide") {
+      width: 100vw;
+      left: 50%;
+      transform: translateX(-50vw);
+      padding-left: calc( ( 100vw - #{$containerMaxWidth - ($gridGutter*3)} ) / 2 );
+    }
+
+  }
+
+  &__carousel-cell {
+    float: left;
+    margin-right: 20px;
+    width: 100%;
+
+    @include media("<med") {
+      width: 90vw;
+      padding-left: $gridGutterMob;
+      margin-right: -#{$gridGutterMob/2};
+      // margin-right: $gridGutterMob/2;
+      // transform: translateX(-#{$gridGutterMob});
+    }
+
+    @include media(">med") {
+      width: calc(50% - 20px);
+    }
+    @include media(">xl") {
+      width: calc(25% - 20px);
+    }
+    @include media(">xwide") {
+      width: 290px;
+    }
+
+    // &--first {
+    //   padding-left: 200px;
+    //   width: calc(290px + 200px);
+    // }
+  }
+
+  .flickity-prev-next-button {
+    background: $black;
+    border-radius: 50%;
+    height: 35px;
+    @include media("<med") {
+      display: none;
+    }
+
+    &:before {
+      display: none;
+    }
+
+    &:after {
+      border-color: $white;
+    }
+
+    &.previous {
+      left: 20px;
+      &:after {
+        left: calc(50% - 2px);
+      }
+
+      @include media("<lrg") {
+        left: -28PX;
+      }
+    }
+    &.next {
+      right: 20px;
+      &:after {
+        left: calc(50% - 6px);
+      }
+
+      @include media("<lrg") {
+        right: -28PX;
+        left: auto;
+      }
+    }
+  }
+
+}

@@ -1,0 +1,22 @@
+<section {% include 'helpers/section_id.twig' with { 'id': content.layout_settings.section_options.id } %} class="{% include 'helpers/section_classes.twig' with { 'options': content.layout_settings.section_options } %}">
+  <div class="container">
+    {% if content.title or content.intro %}
+    <div class="row row--pad-bot row--justify-center">
+      <div class="col col--4@xl text--center">
+        {{ (content.title) ? '<p class="h2">'~ content.title ~'</p>' : '' }}
+        {{ (content.intro) ? '<p>' ~ content.intro ~ '</p>' : '' }}
+      </div>
+    </div>
+    {% endif %}
+
+    <div class="row row--justify-center">
+      <div class="col col--10@xl">
+        <div class="slideshare-embed">
+          {{ function('do_shortcode', content.embed_code) }}
+        </div>
+      </div>
+    </div>
+
+  </div>
+  {% include 'helpers/styled_background.twig' with { 'options': content.layout_settings.section_options } %}
+</section>

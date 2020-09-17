@@ -1,0 +1,103 @@
+.solutions-service-card {
+  display: block;
+  width: 100%;
+  height: 80vw;
+  position: relative;
+  overflow: hidden;
+  @include media(">med") {
+    height: 400px;
+  }
+
+  &__bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    transition: all $speed-2x $easing;
+  }
+
+  &__content {
+    width: calc(100% - 20px);
+    // max-width: 300px;
+    border-radius: $base-border-radius;
+    overflow: hidden;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    padding: 30px 50px 30px 30px;
+    min-height: 150px;
+    transition: min-height $speed-2x $easing;
+    display: flex;
+    flex-direction: column;
+    @include media(">med") {
+      width: calc(100% - 20px);
+      max-width: 300px;
+
+    }
+
+    .btn {
+      margin-top: auto;
+      color: $black;
+    }
+    .btn--left-arrow::after {
+      background: $black;
+    }
+    .btn--left-arrow::before {
+      border-top: 2px solid $black;
+      border-right: 2px solid $black;
+    }
+  }
+
+  &__desc {
+    // display: none;
+    opacity: 0;
+    position: relative;
+    p {
+      position: absolute;
+    }
+  }
+
+  &:hover {
+    .solutions-service-card__bg {
+      transform: scale(1.05);
+    }
+    .solutions-service-card__content {
+      // min-height: calc(370px - 20px);
+      min-height: calc(100% - 20px);
+    }
+    .solutions-service-card__desc {
+      display: block;
+      animation: fadein .2s linear forwards;
+      animation-delay: .5s;
+    }
+  }
+}
+
+@keyframes fadein {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+.has-touch {
+  .solutions-service-card {
+    &[data-emergence="hidden"] {
+
+    }
+    &[data-emergence="visible"] {
+      // These are basically the same styles as the "Hover" state on desktop
+      .solutions-service-card__bg {
+        transform: scale(1.05);
+      }
+      .solutions-service-card__content {
+        min-height: calc(100% - 20px);
+      }
+      .solutions-service-card__desc {
+        display: block;
+        animation: fadein .2s linear forwards;
+        animation-delay: .5s;
+      }
+    }
+  }
+}

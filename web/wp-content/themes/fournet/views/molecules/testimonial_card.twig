@@ -1,0 +1,16 @@
+<div class="testimonial-card {{ (text) ? 'colour--' ~ text : 'colour--white' }} {{ (background) ? background : '' }}  {{ content.background_colour }}">
+  {% if content.logo %}
+  <img class="testimonial-card__logo" src="{{ TimberImage(content.logo['sizes']['medium']) }}" alt="">
+  {% endif %}
+  {{ (content.quote) ? '<p class="h3">'~ content.quote ~'</p>' : '' }}
+  {{ (content.footnote) ? '<p class="text--small">'~ content.footnote ~'</p>' : '' }}
+
+  {{ (content.title) ? '<p class="h3">'~ content.title ~'</p>' : '' }}
+  {{ (content.content) ? '<p class="text--small">'~ content.content ~'</p>' : '' }}
+
+  {% if content.buttons %}
+    {% include 'molecules/button_group.twig' with {
+      'buttons': content.buttons,
+    } %}
+  {% endif %}
+</div>

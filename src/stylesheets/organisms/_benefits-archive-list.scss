@@ -1,0 +1,26 @@
+.benefits-archive-list {
+  // margin-bottom: -100px;
+  z-index: 9;
+
+  & + section {
+    &:before {
+      content: '';
+      width: 100%;
+      height: 350px;
+      top: 0;
+      left: 0;
+      background: $sapphire;
+      position: absolute;
+    }
+    .row:first-child {
+      p.h2 {
+        color: $white;
+      }
+    }
+  }
+
+  .row:last-child {
+    margin-bottom: 0px!important;
+    padding: 30px 0px!important;
+  }
+}

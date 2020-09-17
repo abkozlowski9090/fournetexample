@@ -1,0 +1,31 @@
+<div class="info_card bg--{{ colour.background_colour }} info_card--hover-{{ colour.background_hover_colour }} colour--{{ colour.text_colour }} info_card--text-hover-{{ colour.text_hover_colour }} info_card--icon-hover-{{colour.icon_hover_colour}} {{ (colour.box_shadow) ? 'info_card--box-shadow' : '' }} {{ (slim) ? 'info_card--slim' : '' }}">
+  {% if content.icon_type == "svg" %}
+    {% if content.icon %}
+      {% include 'atoms/icon.twig' with {
+        'icon': content.icon,
+        'class_list': "info_card--icon-#{colour.icon_colour}"  ' info_card__icon'
+      } %}
+    {% endif %}
+  {% else %}
+    {% if content.image %}
+    <div>
+      <img class="info_card__icon info_card__icon--image" src="{{ content.image.sizes['medium'] }}" alt="{{ content.image.alt }}">
+    </div>
+
+    {% endif %}
+
+  {% endif %}
+
+    <p class="info_card__title  {{ (slim) ? 'h3' : 'h2 ' }} ">{{ content.title }}</p>
+    {% if content.subtitle %}
+    <p class="info_card__subtitle">{{ content.subtitle }}</p>
+    {% endif %}
+    <p class="info_card__description">{{ content.description }}</p>
+
+
+  {% if content.buttons %}
+    {% include 'molecules/button_group.twig' with {
+      'buttons': content.buttons,
+    } %}
+  {% endif %}
+</div>

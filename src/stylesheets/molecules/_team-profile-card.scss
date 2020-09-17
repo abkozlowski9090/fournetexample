@@ -1,0 +1,65 @@
+.team-profile-card {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  &__image {
+    width: 100%;
+    padding-bottom: 115%;
+    position: relative;
+
+    &--tall {
+      padding-bottom: 125%;
+    }
+    // margin-bottom: 30px;
+
+    img {
+
+    }
+  }
+
+  &__year {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    p {
+      text-shadow: 2PX 0PX 4PX rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  p {
+    margin: 30px 0 0 0;
+    &:last-of-type {
+      margin-top: 10px;
+    }
+  }
+
+  &__lightbox {
+    max-height: 80vh;
+    overflow: auto;
+    pointer-events: all;
+
+    width: 100%;
+    max-width: 700px;
+    position: relative;
+
+    img {
+      width: 100%;
+      @include media(">xl") {
+        max-width: 70%;
+        max-height: 335px;
+        object-fit: contain;
+        object-position: left;
+      }
+    }
+
+    .content {
+      width: 100%;
+      padding-top: 50px;
+      @include media(">xl") {
+        padding-left: 30%;
+      }
+    }
+
+
+  }
+}

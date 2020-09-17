@@ -1,0 +1,34 @@
+.accordions {
+
+  &__accordion {
+    background: $white;
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.25);
+    margin-bottom: $gridGutter;
+    padding: 50px 20px;
+
+    @include media("<med") {
+      padding: 40px;
+    }
+
+    &--hide {
+      .accordion__down-arrow {
+        display: none;
+      }
+    }
+
+    .icon {
+      width: 40px;
+      height: 40px;
+      fill: $red;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__accordion-trigger {
+    height: auto;
+    display: block;
+    width: 100%;
+    white-space: normal;
+  }
+
+}

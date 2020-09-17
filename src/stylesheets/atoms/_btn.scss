@@ -1,0 +1,165 @@
+button,
+.btn {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0px;
+  background-color: $buttonBgColor;
+  border: 0;
+  cursor: pointer;
+  color: $white;
+  // color: inherit;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+  font-size: $small-font-size;
+  font-weight: $base-bold-font-weight;
+  font-family: $semi-bold-font;
+  line-height: 37PX;
+  height: 37PX;
+  border-radius: 2PX;
+  outline: none;
+  padding: 0 25PX;
+  position: relative;
+  text-decoration: none;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  @include media("<med") {
+    font-size: $small-font-size * 1.15;
+  }
+
+  span {
+    display: block;
+    transition: all $speed $easing;
+    pointer-events: none;
+  }
+
+  &--red {
+    background-color: $red;
+    color: $white;
+
+    &:hover {
+      background-color: $white;
+      color: $red;
+    }
+  }
+
+  &--sapphire {
+    background-color: $sapphire;
+    color: $white;
+    &:hover {
+      background-color: $crimson;
+      color: $white;
+    }
+  }
+
+  &--white {
+    background-color: $white;
+    color: $sapphire;
+    &:hover {
+      background-color: $sapphire;
+      color: $white;
+    }
+  }
+
+  &--grey {
+    background-color: $grey;
+    color: $sapphire;
+
+    &.is-active,
+    &:hover {
+      background-color: $sapphire;
+      color: $grey;
+    }
+  }
+
+  &--dark-violet {
+    background-color: $darkviolet;
+    color: $white!important;
+
+    &.is-active,
+    &:hover {
+      background-color: $sapphire;
+      color: $white;
+    }
+  }
+
+
+  &--white-outline {
+    background-color: transparent;
+    box-shadow: inset 0 0 0 1PX $white;
+    color: $white;
+
+    &:hover {
+      background-color: $black;
+      color: $white;
+      box-shadow: none;
+    }
+  }
+
+  &--black-outline {
+    background-color: transparent;
+    box-shadow: inset 0 0 0 1PX $sapphire;
+    color: $sapphire;
+
+    &:hover {
+      background-color: $sapphire;
+      color: $white;
+      box-shadow: inset 0 0 0 1PX $white;
+    }
+  }
+
+  &--left-arrow {
+    background-color: transparent;
+    color: $red;
+    padding-left: 40px;
+
+    &:before {
+      content: "";
+      position: absolute;
+      left: 8PX;
+      top: 14PX;
+      width: 6PX;
+      height: 6PX;
+      border-radius: 0.1em;
+      border-top: 2PX solid $crimson;
+      border-right: 2PX solid $crimson;
+      transform: rotate(45deg);
+      transition: all $speed $easing;
+    }
+
+    &:after {
+      background: $crimson;
+      content: "";
+      position: absolute;
+      left: 0PX;
+      top: 17PX;
+      width: 15PX;
+      height: 2PX;
+      transition: all $speed $easing;
+      // border-top: 2PX solid $crimson;
+    }
+
+    &:hover {
+      &:before {
+        transform: translateX(10px) rotate(45deg);
+      }
+      &:after {
+        transform: translateX(10px);
+      }
+    }
+
+    @each $name, $color in $colorMap {
+      &-#{$name} {
+        color: $color;
+        &:before {
+          border-color: $color;
+        }
+        &:after {
+          background: $color;
+        }
+
+      }
+    }
+
+  }
+
+}

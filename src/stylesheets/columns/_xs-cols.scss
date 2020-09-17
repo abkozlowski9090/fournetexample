@@ -1,0 +1,41 @@
+&--8 {
+
+    &\@xs {
+      @include media(">xs") {
+        width: calc(99.99% * 8/12 - (#{$gridGutter*2} * 8/12));
+          margin-left: $gridGutter/2;
+          margin-right: $gridGutter/2;
+      }
+    }
+
+}
+&--6 {
+
+    &\@xs {
+      @include media(">xs") {
+        width: calc(99.99% * 6/12 - (#{$gridGutter*2} * 6/12));
+
+
+      }
+      @include media(">xs", "<med") {
+        &:nth-child(odd) {
+          margin-right: $gridGutter;
+        }
+        &:nth-child(even) {
+          margin-left: $gridGutter;
+        }
+      }
+    }
+
+}
+&--4 {
+
+    &\@xs {
+      @include media(">xs") {
+        width: calc(99.99% * 4/12 - (#{$gridGutter*2} * 4/12));
+          margin-left: $gridGutter/2;
+          margin-right: $gridGutter/2;
+      }
+    }
+
+}

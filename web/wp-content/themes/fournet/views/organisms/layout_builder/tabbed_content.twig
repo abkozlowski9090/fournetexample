@@ -1,0 +1,60 @@
+<section {% include 'helpers/section_id.twig' with { 'id': content.layout_settings.section_options.id } %} data-module="tabbedcontent" class="tabbed-content {% include 'helpers/section_classes.twig' with { 'options': content.layout_settings.section_options } %}">
+  <div class="container">
+    {% if content.title or content.intro %}
+    <div class="row row--pad-bot row--justify-center">
+      <div class="col col--6@xl text--center">
+        {% if content.title %}
+          <p class="h2">{{ content.title }}</p>
+        {% endif %}
+
+        {% if content.intro %}
+          <p>{{ content.intro }}</p>
+        {% endif %}
+      </div>
+    </div>
+    {% endif %}
+    <div class="row row--pad-bot row--justify-center">
+      {% for tab in content.tabs %}
+        <button data-tab-num="{{ loop.index }}" type="button" class="btn btn--white reset-button js-tab-button tabbed-content__tab-btn {{ (loop.index == 1) ? 'is-active' : '' }}"><span>{{ tab.title }}</span></button>
+      {% endfor %}
+    </div>
+    <div class="row">
+      <div class="col col--12@med">
+
+        <div class="tabbed-content__carousel js-tab-carousel">
+          {% for tab in content.tabs %}
+            <div class="carousel-cell bg--{{ (tab.text_background_colour) ? tab.text_background_colour : 'sapphire' }} colour--{{ (tab.text_colour) ? tab.text_colour : 'white' }} {{ (tab.content_type) ? 'img' : '' }}" data-slide-type="{{ tab.content_type }}">
+              {% if tab.content_type == "image" %}
+                {% include 'atoms/picture.twig' with {
+                  'attr': '',
+                  'class_list': 'carousel-cell-image',
+                  'alt': tab.tab_image.image.large.caption,
+                  'images': {
+                    'large': TimberImage(tab.tab_image.image.large['sizes']['large']),
+                    'large_retina': TimberImage(tab.tab_image.image.large['sizes']['large']),
+                    'medium': (tab.tab_image.image.medium) ? TimberImage(tab.tab_image.image.medium['sizes']['large']) : TimberImage(tab.tab_image.image.large['sizes']['large']),
+                    'small': (tab.tab_image.image.small) ? TimberImage(tab.tab_image.image.small['sizes']['large']) : TimberImage(tab.tab_image.image.large['sizes']['large'])
+                  }
+                } %}
+              {% else %}
+                <div class="row">
+                  <div class="col col--3@xl">
+                    <p class="h3">{{ tab.tab_text.title }}</p>
+                  </div>
+                  <div class="col col--9@xl">
+                    <div class="tabbed-content__text-columns {{ (tab.single_column_text) ? 'tabbed-content__text-columns--single-col' : '' }} bg--{{ (tab.text_background_colour) ? tab.text_background_colour : 'sapphire' }}  colour--{{ (tab.text_colour) ? tab.text_colour : 'white' }}">
+                      {{ tab.tab_text.content }}
+                    </div>
+                  </div>
+                </div>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  {% include 'helpers/styled_background.twig' with { 'options': content.layout_settings.section_options } %}
+</section>

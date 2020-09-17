@@ -1,0 +1,39 @@
+<section {% include 'helpers/section_id.twig' with { 'id': content.layout_settings.section_options.id } %} class="latest-news {% include 'helpers/section_classes.twig' with { 'options': content.layout_settings.section_options } %}">
+  <div class="container">
+    <div class="row row--justify-center">
+      <div class="col col--6@med text--center">
+        <p class="h2">Latest from FourNet</p>
+      </div>
+    </div>
+    <div class="latest-news__wrapper">
+      {% for post in latest_news %}
+        {% if post.featured_post or loop.index0 == 0 %}
+          <a href="{{post.link}}" class="latest-news__featured">
+            <div class="latest-news__image">
+              {% include 'atoms/picture.twig' with {
+                'alt': post.thumbnail.caption,
+                'class_list': 'cover-bg__img',
+                'images': {
+                  'large': post.thumbnail.src('medium-long')
+                }
+              } %}
+            </div>
+            <div class="latest-news__featured-content">
+              <p class="">{{ post.terms('category') | join(', ') }}</p>
+              <p class="h3">{{post.title}}</p>
+              <p class="btn btn--left-arrow"> Read More </p>
+            </div>
+          </a>
+        {% else %}
+        <a href="{{post.link}}" class="latest-news__news-card">
+          <p class="">{{ post.terms('category') | join(', ') }}</p>
+          <p class="h3">{{post.title}}</p>
+          <p class="btn btn--left-arrow"> Read More </p>
+        </a>
+        {% endif %}
+    {% endfor %}
+
+      </div>
+    </div>
+  {% include 'helpers/styled_background.twig' with { 'options': content.layout_settings.section_options } %}
+</section>

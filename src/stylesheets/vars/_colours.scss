@@ -1,0 +1,25 @@
+$black: rgb(0, 0, 0);
+$white: rgb(255, 255, 255);
+$sapphire: #21042B;
+$indigo: #2d073a; // lighter version of the above
+$darkviolet:  #6D1293;
+$lightgrey: #EFEFEF;
+$crimson: #EE0F30;
+$grey: rgb(227, 227, 227);
+$red: $crimson;
+
+$textColor: $sapphire;
+$buttonColor: $white;
+$buttonBgColor: $crimson;
+
+$colorMap: (
+  'black': $black,
+  'white': $white,
+  'grey': $grey,
+  'sapphire': $sapphire,
+  'indigo': $indigo,
+  'lightgrey': $lightgrey,
+  'crimson': $crimson,
+  'darkviolet': $darkviolet,
+  'red': $crimson
+) !default;

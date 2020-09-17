@@ -1,0 +1,11 @@
+.info-cards {
+  .row.flickity-enabled {
+    .flickity-slider {
+      display: flex;
+      position: static;
+    }
+    .carousel-cell {
+      position: static !important;
+    }
+  }
+}

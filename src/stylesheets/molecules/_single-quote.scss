@@ -1,0 +1,37 @@
+.single-quote {
+  width: 100%;
+  padding: 30px 60px;
+  overflow: hidden;
+  position: relative;
+  @include media(">xl") {
+    padding: 60px 120px;
+  }
+
+  &__img {
+    width: 110px;
+    margin-bottom: 20px;
+  }
+
+  &__bg {
+    position: absolute;
+    width: 170%;
+    // height: 100%;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    transform: translateY(-50%);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  p {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__quote {
+    margin-bottom: 30px;
+    position: relative;
+  }
+
+}

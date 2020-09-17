@@ -1,0 +1,100 @@
+{
+    "key": "group_5e362871a091f",
+    "title": "Utility -- Button Repeater",
+    "fields": [
+        {
+            "key": "field_5e3628798eba9",
+            "label": "Buttons",
+            "name": "buttons",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "acfe_permissions": "",
+            "acfe_repeater_stylised_button": 0,
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "+ Button",
+            "sub_fields": [
+                {
+                    "key": "field_5e3628828ebaa",
+                    "label": "Button",
+                    "name": "button",
+                    "type": "acfe_advanced_link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "acfe_permissions": "",
+                    "post_type": "",
+                    "taxonomy": ""
+                },
+                {
+                    "key": "field_5e375e45709ea",
+                    "label": "Button Style",
+                    "name": "button_style",
+                    "type": "button_group",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "acfe_permissions": "",
+                    "choices": {
+                        "btn--red": "Red",
+                        "btn--sapphire": "Sapphire",
+                        "btn--white-outline": "White Outline",
+                        "btn--black-outline": "Black Outline",
+                        "btn--white": "White",
+                        "btn--left-arrow": "Left Arrow",
+                        "btn--left-arrow btn--left-arrow-white": "Left White Arrow"
+                    },
+                    "allow_null": 0,
+                    "default_value": "btn--red",
+                    "layout": "horizontal",
+                    "return_format": "value"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "left",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 0,
+    "description": "",
+    "acfe_display_title": "",
+    "acfe_autosync": [
+        "json"
+    ],
+    "acfe_permissions": "",
+    "acfe_form": 0,
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1586861281
+}

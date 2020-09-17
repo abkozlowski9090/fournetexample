@@ -1,0 +1,27 @@
+<section {% include 'helpers/section_id.twig' with { 'id': content.layout_settings.section_options.id } %} class="faqs {% include 'helpers/section_classes.twig' with { 'options': content.layout_settings.section_options } %}">
+  <div class="container">
+    <div class="row row--justify-center">
+      <div class="col col--6@med text--center">
+        <p class="h2">{{ function('__', "FAQs", 'fournet') }}</p>
+      </div>
+    </div>
+    <div class="row">
+
+      <div class="col col--12@med">
+        <div class="accordion">
+          {% for faq in content.faqs %}
+          <button class="accordion__button accordion__button--faq reset-button" data-module="faq"><span class="accordion__down-arrow"></span>{{ faq.title }}</button>
+          <div class="accordion__panel">
+            <div class="accordion__panel-wrapper">
+              {{ faq.content }}
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+  {% include 'helpers/styled_background.twig' with { 'options': content.layout_settings.section_options } %}
+</section>

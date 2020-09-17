@@ -1,0 +1,68 @@
+.site-footer {
+  position: relative;
+  z-index: 9;
+  padding: 64px 0 0;
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .h3 {
+    font-size: 20px;
+  }
+
+
+  &__logo {
+    svg {
+      width: 70px;
+      height: 70px;
+    }
+  }
+
+  &__links {
+    @include media(">med") {
+      column-count: 2;
+      list-style: none;
+      padding-inline-start: 0px;
+    }
+    a {
+      font-size: 12px;
+      line-height: 17px;
+      @include media("<med") {
+        font-size: 15px;
+        line-height: 20px;
+      }
+    }
+
+  }
+
+  &__extra-logo {
+    display: inline-block;
+    width: 80px;
+    margin-top: auto;
+    margin-left: auto;
+  }
+
+  &__bottom-logo-wrapper {
+    display: flex;
+    align-content: center;
+    align-items: center;
+  }
+
+  .menu-item {
+    p {
+      line-height: 1.2;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+  }
+
+  .icon--icon-crown svg {
+    height: 40PX!important;
+  }
+
+}

@@ -1,0 +1,84 @@
+.tabbed-content {
+  &__tab-btn {
+    margin: 0 3px;
+
+    @include media("<lrg") {
+      margin-bottom: 10px;
+    }
+
+    @include media("<med") {
+      width: 39vw;
+      text-align: center;
+      margin-bottom: 5px;
+      // padding-top: 10px;
+      // padding-bottom: 10px;
+    }
+  }
+
+  &__carousel {
+    .flickity-viewport {
+        transition: height 0.2s;
+    }
+
+    .carousel-cell {
+      width: 100%;
+
+      padding: 60px;
+
+      @include media(">wide") {
+        padding: 90px;
+      }
+
+      &.img {
+        padding: 30px;
+
+        @include media(">wide") {
+          padding: 45px;
+        }
+      }
+
+      img {
+        width: 100%;
+        float: left;
+      }
+    }
+  }
+
+  .btn--white {
+    &.is-active,
+    &:hover {
+      background-color: $red!important;
+      color: $white;
+    }
+  }
+
+  // &__text-content {
+  //   padding: 60px;
+  //
+  //   @include media(">wide") {
+  //     padding: 90px;
+  //   }
+  // }
+
+  &__text-columns {
+    @include media(">xl") {
+      column-count: 2;
+      column-gap: $gridGutter;
+    }
+
+    &--single-col {
+      @include media(">xl") {
+        column-count: 1;
+        column-gap: 0;
+        width: 75%;
+      }
+    }
+
+    ul, ol {
+      @include media(">xl") {
+        column-span: all;
+      }
+    }
+
+  }
+}

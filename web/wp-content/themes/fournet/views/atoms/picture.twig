@@ -1,0 +1,7 @@
+<picture>
+  {% if images.large_retina %}<source media="--retina" {{ (disable_lazyload or images.large_retina|split('.')|last == 'gif') ? 'src' : 'data-srcset' }}="{{ images.large_retina }}">{% endif %}
+  {% if images.large %}<source media="--large" {{ (disable_lazyload or images.large|split('.')|last == 'gif') ? 'src' : 'data-srcset' }}="{{ images.large }}">{% endif %}
+  {% if images.medium %}<source media="--medium" {{ (disable_lazyload or images.medium|split('.')|last == 'gif') ? 'src' : 'data-srcset' }}="{{ images.medium }}">{% endif %}
+  {% if images.small %}<source media="--small" {{ (disable_lazyload or images.small|split('.')|last == 'gif') ? 'src' : 'data-srcset' }}="{{ images.small }}">{% endif %}
+  <img {{ (disable_lazyload or images.large|split('.')|last == 'gif') ? 'src' : 'data-src' }}="{{ images.large }}" {{ attr }} alt="{{ alt }}" class="{{ (disable_lazyload or images.large|split('.')|last == 'gif') ? '' : 'lazyload lazypreload' }} {{ class_list }}">
+</picture>

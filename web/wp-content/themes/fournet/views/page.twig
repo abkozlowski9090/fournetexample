@@ -1,0 +1,14 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+
+{% include 'organisms/page-header.twig' with {
+	'content' : post.get_field('header'),
+	'is_front': function('is_front_page')
+} %}
+
+{% include 'layout-builder.twig' with {
+	'layouts' : post.get_field('layout_builder')
+} %}
+{% endblock %}

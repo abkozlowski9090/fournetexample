@@ -1,0 +1,116 @@
+
+
+{% if not post.get_field('hide_footer_info_strip') %}
+{%
+  include 'organisms/layout_builder/info_strip.twig' with {
+    'class_list': 'bg--crimson',
+    'text_colour': 'colour--white'
+  }
+%}
+{% endif %}
+
+<footer class="site-footer bg--black colour--white">
+  <div class="container container--full-width">
+    <div class="row row--flex-always">
+
+      <div class="col col--2@xl">
+        <a href="/" class="site-footer__logo">
+          {% include 'atoms/icon.twig' with { 'icon': 'icon-footer-logo' } %}
+        </a>
+      </div>
+
+  <div class="col col--10@xl">
+    <div class="row row--flex-always">
+      <div class="col col--6@med col--3@xl">
+        <p class="h3">Services & Solutions </p>
+        <br>
+        	<ul class="reset-list">
+          {% for item in footer_nav_i.get_items %}
+            <li class="{{item.classes | join(' ')}}">
+              <p><a href="{{item.link}}">{{item.title}}</a></p>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="col col--6@med col--3@xl">
+        <p class="h3">Benefits</p>
+        <br>
+        <ul class="reset-list">
+        {% for item in footer_nav_iii.get_items %}
+          <li class="{{item.classes | join(' ')}}">
+            <p><a href="{{item.link}}">{{item.title}}</a></p>
+          </li>
+        {% endfor %}
+      </ul>
+      </div>
+
+      <div class="col col--6@med col--3@xl">
+        <p class="h3">Sectors </p>
+        <br>
+        <ul class="reset-list">
+        {% for item in footer_nav_ii.get_items %}
+          <li class="{{item.classes | join(' ')}}">
+            <p><a href="{{item.link}}">{{item.title}}</a></p>
+          </li>
+        {% endfor %}
+      </ul>
+      </div>
+
+      <div class="col col--6@med col--3@xl">
+        <p class="h3">Find Out More </p>
+        <br>
+        <ul class="reset-list">
+        {% for item in footer_nav_iv.get_items %}
+          <li class="{{item.classes | join(' ')}}">
+            <p><a href="{{item.link}}">{{item.title}}</a></p>
+          </li>
+        {% endfor %}
+      </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="row row--align-center">
+      <div class="col col--9@xl">
+        <div class="bottom-bar">
+
+            {% include 'atoms/social-icons.twig' with {
+              'accounts': [{
+                'icon': 'icon-facebook',
+                'link': post.facebook ?: options.facebook
+              }, {
+                'icon': 'icon-twitter',
+                'link': post.twitter ?: options.twitter
+              }, {
+                'icon': 'icon-linkedin',
+                'link': post.linkedin ?: options.linkedin
+              }, {
+                'icon': 'icon-youtube',
+                'link': post.youtube ?: options.youtube
+              }]
+            }%}
+
+          <div class="bottom-bar__copyright text--small">
+            <p>Copyright &copy; {{ "now"|date('Y') }}</p>
+            {% for item in footer_nav_v.get_items %}
+              <p><a href="{{ item.link }}">{{ item.title }}</a></p>
+            {% endfor %}
+            <p> Website by <a target="_blank" href="http://persona.studio/">Persona Studio </a> | <a target="_blank" href="https://tilecreative.com/">Tile Creative </a> </p>
+          </div>
+        </div>
+      </div>
+      <div class="col col--3@xl">
+        <div class="site-footer__bottom-logo-wrapper">
+          <div class="bottom-bar__logo bottom-bar__logo--png">
+            <img src="{{ theme.link }}/assets/images/g-cloud.png" alt="G Cloud">
+          </div>
+          <div class="bottom-bar__logo">
+            {% include 'atoms/icon.twig' with { 'icon': 'icon-crown' } %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

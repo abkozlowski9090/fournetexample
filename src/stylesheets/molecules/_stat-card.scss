@@ -1,0 +1,52 @@
+.stat-card {
+  position: relative;
+  margin-bottom: 70px;
+  border-top: 1PX solid $red;
+  padding-top: 10px;
+  height: 165px;
+  transition: all $speed-2x $easing;
+  @include media(">xl") {
+    width: 80%;
+  }
+  @include media("<med") {
+    height: auto;
+    margin-bottom: 25px;
+  }
+
+  &--show {
+    @include media(">wide") {
+      &:hover {
+
+        .stat-card__label,
+        .stat-card__figure {
+          display: none;
+        }
+        .stat-card__description {
+          opacity: 1;
+          animation-name: fadeInUp;
+          animation-duration: 1s;
+          animation-fill-mode: both;
+        }
+      }
+    }
+
+  }
+
+  &__description {
+    opacity: 0;
+    position: absolute;
+  }
+
+}
+
+
+@keyframes fadeInUp {
+    from {
+        transform: translate3d(0,40px,0)
+    }
+
+    to {
+        transform: translate3d(0,0,0);
+        opacity: 1
+    }
+}

@@ -1,0 +1,8 @@
+{% for layout in layouts %}
+	{% if not layout.hide_section %}
+    {% include 'organisms/layout_builder/'~ layout.acf_fc_layout ~'.twig' with {
+      'content': layout,
+      'layout_num': loop.index
+    } %}
+  {% endif %}
+{% endfor %}

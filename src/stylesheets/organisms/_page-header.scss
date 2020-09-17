@@ -1,0 +1,329 @@
+.page-header {
+  position: relative;
+  // padding: 190px 0;
+  // height: 90vh;
+  // min-height: 550px;
+  // max-height: 800px;
+  height: 720px;
+  display: flex;
+  width: 100vw;
+
+  @include media(">med") {
+    align-items: flex-end;
+    padding-bottom: 100px;
+
+  }
+
+  @include media(">xl") {
+    padding-bottom: 0px;
+    align-items: center;
+
+  }
+
+  // overflow: hidden;
+
+  &--condensed {
+    height: auto;
+    padding-top: 200px;
+    padding-bottom: 100px;
+    @include media(">xl") {
+      padding-top: 100px;
+    }
+  }
+
+  @include media("<med") {
+    flex-direction: column-reverse;
+    justify-content: center;
+
+    height: auto;
+    max-height: none;
+    padding: 95vw 0 100px 0;
+  }
+
+  &__image {
+    position: absolute;
+    width: 45vw;
+    // min-height: 550px;
+    // height: 55vw;
+    height: 100%;
+    // max-height: 800px;
+    // max-width: 720px;
+    top: 0;
+    left: 40px;
+    object-fit: contain;
+    overflow: hidden;
+    z-index: 2;
+
+    @include media("<med") {
+      position: relative;
+      left: 5vw;
+      width: 90vw;
+      height: 90vw;
+    }
+
+    &--masked {
+      // clip-path: url('#pageHeaderImageMask');
+      clip-path: polygon( 0px 115vw, 0px 0px, 100vw 0vw, 100vw 20vw );
+
+      object-fit: cover;
+      object-position: right;
+      max-height: 800px;
+      max-width: none;
+      width: 100vw;
+      left: 0;
+      height: 120vw;
+
+
+        // transform: translateX(-400px);
+        // width: calc(100vw + 400px);
+
+      @include media(">med") {
+        transform: translateX(-400px);
+        width: calc(100vw + 400px);
+        clip-path: polygon( 0px 720px, 0px 0px, 1050px 0, 0 1050px );
+        height: 100%;
+      }
+      @include media(">xl") {
+        // transform: translateX(-300px);
+        clip-path: polygon( 0px 720px, 0px 0px, 50vw 0, 0 50vw );
+        width: 50vw;
+        transform: translateX(0px);
+      }
+
+      @include media(">wide") {
+        clip-path: polygon( 0px 720px, 0px 0px, 55vw 0, 0 55vw );
+        width: 55vw;
+        // object-position: -10vw;
+        // transform: translateX(-50px);
+        // width: 75vw;
+
+      }
+      @include media(">xwide") {
+        // object-position: -15vw;
+        // width: 75vw;
+        // transform: translateX(-150px);
+      }
+      @include media(">xxwide") {
+        // transform: translateX(0px);
+        // width: 65vw;
+      }
+
+      @include media("<med") {
+        position: absolute;
+      }
+
+    }
+  }
+
+  &__content-bg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+
+    span {
+      // height: 200%;
+      // padding-left: 200%;
+      width: 200vw;
+      height: 200vw;
+      position: absolute;
+      right: 10vw;
+      bottom: 0;
+      background: rgba(0,0,0,0.25);
+      transform: rotate(-45deg);
+      @include media("<med") {
+        bottom: 50vw;
+      }
+
+    }
+
+    &:before {
+      border-radius: 5PX;
+      content: '';
+      width: 400PX;
+      height: 400PX;
+      position: absolute;
+      left: 80vw;
+      bottom: 0;
+      background: rgba(0,0,0,0.25);
+      transform: rotate(-45deg);
+      transform-origin: bottom right;
+    }
+  }
+
+  &__mask-svg {
+    width: 0;
+    height: 0;
+    position: absolute;
+    overflow: hidden;
+    // display: none;
+  }
+
+  &__icon {
+    svg {
+      width: 80px;
+      fill: $red;
+    }
+
+    img {
+      max-width: 240px;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    &--icon {
+      transition: all $speed $easing;
+      // Loop through all colours in here:
+      @each $name, $color in $colorMap {
+        &-#{$name} {
+          svg {
+            fill: $color;
+          }
+        }
+      }
+    }
+  }
+
+  &--no-image,
+  &--has-image:not(.page-header--has-bg-graphic),
+  &--has-icon-image {
+    height: auto;
+    // overflow: inherit;
+    overflow: unset;
+    padding-top: 180px;
+    padding-bottom: 140px;
+  }
+
+  &--no-image,
+  &--has-image,
+  &--has-icon-image {
+    @include media("<med") {
+      padding-top: 140px;
+      padding-bottom: 100px;
+    }
+  }
+
+  &--no-image {
+    max-height: none;
+    min-height: 0;
+  }
+
+  &--has-icon-image {
+
+    & + section {
+      z-index: auto;
+    }
+
+    @include media("<xl") {
+      flex-direction: column-reverse;
+      justify-content: center;
+
+      height: auto;
+      max-height: none;
+      padding: 95vw 0 100px 0;
+    }
+
+    .page-header__col--small {
+      @include media(">med", "<xl") {
+        width: 100%;
+      }
+
+    }
+
+    .page-header__image {
+      @include media(">med", "<xl") {
+        position: relative;
+        left: auto;
+        width: 45vw;
+        height: 45vw;
+      }
+
+      @include media(">xl") {
+        height: 105%;
+        width: 45vw;
+      }
+      @include media(">wide") {
+        height: 125%;
+        width: 50vw;
+        max-width: 750px;
+      }
+      @include media(">xwide") {
+        left: 100px;
+      }
+    }
+  }
+
+  &--has-bg-graphic {
+    overflow: hidden;
+
+
+  }
+
+  &__col {
+    // background: yellow;
+    @include media(">xl") {
+      margin-right: $gridGutter/2;
+    }
+
+    &--small {
+      width: 100%;
+      @include media(">med") {
+        width: 65vw;
+        // text-align: right;
+      }
+      @include media(">xl") {
+        // text-align: left;
+        width: 45vw;
+      }
+      @include media(">wide") {
+        width: 35vw;
+        max-width: 500px;
+      }
+
+      &-alt {
+        @include media(">xl") {
+          width: 55vw;
+        }
+        @include media(">wide") {
+          width: 45vw;
+          max-width: 550px;
+        }
+      }
+
+      br {
+        @include media("<xl") {
+          display: none;
+        }
+      }
+    }
+
+    &--img {
+      @include media(">xl") {
+        width: 50%;
+        img {
+          display: block;
+          margin: auto;
+          width: 80%;
+          // max-width: 450px;
+        }
+      }
+    }
+
+    &--wide {
+      @include media(">xl") {
+        width: 75vw;
+        max-width: 800px;
+      }
+    }
+
+    h1 br,
+    p br {
+      @include media("<wide") {
+        display: none;
+      }
+    }
+  }
+}

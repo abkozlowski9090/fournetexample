@@ -1,0 +1,42 @@
+{#
+include 'organisms/site-header.twig' with {
+  'title': STRING,
+  'icon': STRING,
+  'class_list': STRING,
+  'has_burger': BOOLEAN,
+  'menu' : STRING
+}
+#}
+
+{% set header_style = post.header_style %}
+{% set logo_style = post.logo_style %}
+{% if function('get_post_type') == "post" or function('is_category') or function('get_post_type') == 'jobs' %}
+{% set header_style = 'black' %}
+{% set logo_style = 'black' %}
+{% endif %}
+
+
+{% if function('is_post_type_archive', 'benefits') %}
+
+	{% set header_style = options.benefits_overview_options.header_style %}
+	{% set logo_style = options.benefits_overview_options.logo_style %}
+
+{% endif %}
+
+{% if function('is_post_type_archive', 'sectors') %}
+
+  {% set header_style = options.sectors_overview_options.header_style %}
+  {% set logo_style = options.sectors_overview_options.logo_style %}
+
+{% endif %}
+
+<header class="site-header colour--{{ (header_style) ? header_style : 'white' }}">
+  <a href="/" class="site-header__logo site-header__logo--{{ (logo_style) ? logo_style : 'white' }}">
+    {% include 'atoms/icon.twig' with { 'icon': 'icon-logo' } %}
+  </a>
+  <div class="site-header__menu">
+    {% include 'molecules/nav.twig' %}
+  </div>
+
+  <button data-module="navbutton" class="nav-button reset-button site-header__nav-button nav-button--{{ header_style }}"><i></i></button>
+</header>

@@ -1,0 +1,84 @@
+{
+    "key": "group_5e36094e159dc",
+    "title": "Utility -- Vertical Spacing",
+    "fields": [
+        {
+            "key": "field_5e36096298945",
+            "label": "Top Spacing",
+            "name": "top_spacing",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "40",
+                "class": "",
+                "id": ""
+            },
+            "acfe_permissions": "",
+            "choices": {
+                "pad-top": "Small",
+                "dbl-pad-top": "Medium",
+                "trip-pad-top": "Large",
+                "quad-pad-top": "XL",
+                "quin-pad-top": "XXL"
+            },
+            "allow_null": 1,
+            "default_value": "trip-pad-top",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_5e3609e298946",
+            "label": "Bottom Spacing",
+            "name": "bottom_spacing",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "40",
+                "class": "",
+                "id": ""
+            },
+            "acfe_permissions": "",
+            "choices": {
+                "pad-bot": "Small",
+                "dbl-pad-bot": "Medium",
+                "trip-pad-bot": "Large",
+                "quad-pad-bot": "XL",
+                "quin-pad-bot": "XXL"
+            },
+            "allow_null": 1,
+            "default_value": "trip-pad-bot",
+            "layout": "horizontal",
+            "return_format": "value"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "left",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 0,
+    "description": "",
+    "acfe_display_title": "",
+    "acfe_autosync": [
+        "json"
+    ],
+    "acfe_permissions": "",
+    "acfe_form": 0,
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1588070121
+}

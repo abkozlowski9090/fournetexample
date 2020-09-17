@@ -1,0 +1,31 @@
+.pagination {
+  padding-bottom: 50px;
+  padding-top: 50px;
+  .pages {
+    display: flex;
+    padding: 2px 12px;
+
+    li {
+      margin: 0 4px;
+      line-height: 1.2;
+    }
+  }
+  span {
+
+  }
+
+  a {
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  a.page-number {
+    opacity: 0.25;
+    &:hover {
+      opacity: 1;
+      text-decoration: none;
+    }
+  }
+}

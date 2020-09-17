@@ -1,0 +1,61 @@
+{
+    "key": "group_5e32be5e552c2",
+    "title": "Utility -- Colour",
+    "fields": [
+        {
+            "key": "field_5e32be679e320",
+            "label": "Colour",
+            "name": "colour",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "acfe_permissions": "",
+            "choices": {
+                "sapphire": "<span class=\"acf-button-group-colour-block bg--sapphire\"><\/span>",
+                "indigo": "<span class=\"acf-button-group-colour-block bg--indigo\"><\/span>",
+                "lightgrey": "<span class=\"acf-button-group-colour-block bg--lightgrey\"><\/span>",
+                "darkviolet": "<span class=\"acf-button-group-colour-block bg--darkviolet\"><\/span>",
+                "crimson": "<span class=\"acf-button-group-colour-block bg--crimson\"><\/span>",
+                "white": "<span class=\"acf-button-group-colour-block bg--white\"><\/span>",
+                "grey": "<span class=\"acf-button-group-colour-block bg--grey\"><\/span>",
+                "black": "<span class=\"acf-button-group-colour-block bg--black\"><\/span>"
+            },
+            "allow_null": 1,
+            "default_value": "",
+            "layout": "horizontal",
+            "return_format": "value"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 0,
+    "description": "",
+    "acfe_display_title": "",
+    "acfe_autosync": [
+        "json"
+    ],
+    "acfe_permissions": "",
+    "acfe_form": 0,
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1587385323
+}

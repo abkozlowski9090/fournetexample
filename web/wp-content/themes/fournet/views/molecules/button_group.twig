@@ -1,0 +1,14 @@
+{% if buttons|length %}
+<div class="button-group {{ (class_list) ? class_list : '' }}">
+  {% for button in buttons %}
+    {% include 'atoms/btn.twig' with {
+      'button_style': button.button_style,
+      'link': {
+        'url': button.button.url,
+        'target': button.button.target,
+        'title': button.button.title
+      }
+    } %}
+  {% endfor %}
+</div>
+{% endif %}

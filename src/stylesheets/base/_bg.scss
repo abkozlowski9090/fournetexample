@@ -1,0 +1,19 @@
+.bg {
+  @each $name, $color in $colorMap {
+    &--#{$name} {
+      background-color: $color !important;
+    }
+  }
+}
+
+.bg--sapphire {
+
+  .flickity-button.flickity-prev-next-button {
+    &:before {
+      background: $white;
+    }
+    &:after {
+      border-color: $white;
+    }
+  }
+}

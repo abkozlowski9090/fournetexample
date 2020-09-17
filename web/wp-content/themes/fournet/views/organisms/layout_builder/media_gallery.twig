@@ -1,0 +1,42 @@
+<section {% include 'helpers/section_id.twig' with { 'id': content.layout_settings.section_options.id } %} class="media-gallery {% include 'helpers/section_classes.twig' with { 'options': content.layout_settings.section_options } %}">
+  <div class="container">
+    {% if content.label or content.intro %}
+    <div class="row row--pad-bot row--justify-center">
+      <div class="col col--8@xl text--center">
+        {{ (content.label) ? '<p class="h2">'~ content.label ~'</p>' : '' }}
+        {{ (content.intro) ? '<p>' ~ content.intro ~ '</p>' : '' }}
+      </div>
+    </div>
+    {% endif %}
+
+    <div class="media-gallery__carousel" data-module="mediagallerycarousel">
+
+
+      {% for slide in content.slides %}
+        <div class="carousel-cell">
+          {% if slide.acf_fc_layout == "image" %}
+            {% include 'atoms/picture.twig' with {
+              'class_list': 'carousel-cell-image',
+              'attr': '',
+              'alt': slide.image.large.caption,
+              'images': {
+                'large': TimberImage(slide.image.large['sizes']['large']),
+                'large_retina': TimberImage(slide.image.large['sizes']['large']),
+                'medium': (slide.image.medium) ? TimberImage(slide.image.medium['sizes']['large']) : TimberImage(slide.image.large['sizes']['large']),
+                'small': (slide.image.small) ? TimberImage(slide.image.small['sizes']['large']) : TimberImage(slide.image.large['sizes']['large'])
+              }
+            } %}
+          {% else %}
+          <div class="media-gallery__video">
+            <iframe  width="560" height="315" src="https://www.youtube.com/embed/{{slide.youtube_video_id}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          {% endif %}
+
+        </div>
+      {% endfor %}
+
+    </div>
+
+  </div>
+  {% include 'helpers/styled_background.twig' with { 'options': content.layout_settings.section_options } %}
+</section>

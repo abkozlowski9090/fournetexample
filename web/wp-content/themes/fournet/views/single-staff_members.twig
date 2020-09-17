@@ -1,0 +1,16 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+<section class="insights-single__masthead">
+	<div class="container">
+			<p class="h1">{{post.title}}</p>
+	</div>
+</section>
+
+
+{% include 'layout-builder.twig' with {
+	'layouts' : post.get_field('basic_layout_builder')
+} %}
+
+{% endblock %}

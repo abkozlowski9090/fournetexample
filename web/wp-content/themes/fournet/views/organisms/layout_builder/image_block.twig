@@ -1,0 +1,33 @@
+<section class="insights-image-block">
+  {% if content.fullwidth %}
+  <div class="container container--fullwidth">
+    <div class="cover-bg">
+      {% include 'atoms/picture.twig' with {
+        'class_list': 'cover-bg__image',
+        'attr': '',
+        'alt': content.image.large.caption,
+        'images': {
+          'large': TimberImage(content.image.large['sizes']['large']),
+          'large_retina': TimberImage(content.image.large['sizes']['large']),
+          'medium': (content.image.medium) ? TimberImage(content.image.medium['sizes']['large']) : TimberImage(content.image.large['sizes']['large']),
+          'small': (content.image.small) ? TimberImage(content.image.small['sizes']['large']) : TimberImage(content.image.large['sizes']['large'])
+        }
+      } %}
+    </div>
+  </div>
+  {% else %}
+  <div class="container">
+    {% include 'atoms/picture.twig' with {
+      'attr': '',
+      'alt': content.image.large.caption,
+      'images': {
+        'large': TimberImage(content.image.large['sizes']['large']),
+        'large_retina': TimberImage(content.image.large['sizes']['large']),
+        'medium': (content.image.medium) ? TimberImage(content.image.medium['sizes']['large']) : TimberImage(content.image.large['sizes']['large']),
+        'small': (content.image.small) ? TimberImage(content.image.small['sizes']['large']) : TimberImage(content.image.large['sizes']['large'])
+      }
+    } %}
+  </div>
+  {% endif %}
+</div>
+</section>

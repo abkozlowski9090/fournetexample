@@ -1,0 +1,53 @@
+.case-study-testimonials {
+  &__row {
+    @include media(">xl") {
+      flex-wrap: nowrap;
+    }
+    @include media("<lrg") {
+      padding-bottom: 0px!important;
+    }
+  }
+
+  &__col {
+    @include media(">xl") {
+      width: 55%;
+    }
+
+    &:first-child {
+      width: 90%;
+      @include media(">xl") {
+        width: 100%;
+        z-index: 1;
+      }
+
+      @include media("<med") {
+        width: 100%;
+      }
+    }
+    &:last-child {
+      width: 90%;
+      margin-left: 10%;
+      transform: translateY(-40PX);
+      @include media(">xl") {
+        width: 100%;
+        margin-left: 0%;
+        transform: translateX(-5%);
+        margin-top: 100px;
+      }
+
+      @include media("<med") {
+        width: 100%;
+        margin-left: auto;
+        transform: translateY(0PX);
+        margin-top: 20px;
+      }
+    }
+  }
+
+}
+
+// body.home {
+//   .case-study-testimonials {
+//     padding-top: 0px!important;
+//   }
+// }

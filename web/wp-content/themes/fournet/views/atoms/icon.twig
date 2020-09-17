@@ -1,0 +1,5 @@
+{#
+include 'atoms/icon.twig' with
+  { 'icon': STRING }
+#}
+<{{ (is_h1) ? 'h1' : 'span' }} class='icon icon--{{icon}} {{ (class_list) ? class_list : '' }}'><svg>{{ (title) ? '<title>'~ title ~'</title>' : '' }}<use xlink:href='#{{icon}}'></use></svg></{{ (is_h1) ? 'h1' : 'span' }}>

@@ -1,0 +1,71 @@
+<section {% include 'helpers/section_id.twig' with { 'id': content.layout_settings.section_options.id } %} class="columns {% include 'helpers/section_classes.twig' with { 'options': content.layout_settings.section_options } %}">
+  <div class="container">
+    <div class="row {{ (content.reverse_order) ? 'row--reverse-cols' : '' }} {{ content.vertical_align }} row--justify-between">
+
+      {% if content.column_left.content.title or content.column_left.content.content or content.column_left.image.large %}
+      <div class="col col--{{ content.column_left.width }}@xl">
+        {% if content.column_left.content.title %}
+        <h2>{{ content.column_left.content.title }}</h2>
+        {% endif %}
+
+        {% if content.column_left.content.content %}
+        {{ content.column_left.content.content }}
+        {% endif %}
+
+        {% if content.column_left.content.buttons|length %}
+        {% include 'molecules/button_group.twig' with {
+          'buttons': content.column_left.content.buttons
+        } %}
+        {% endif %}
+
+        {% if content.column_left.image.large %}
+          {% include 'atoms/picture.twig' with {
+            'attr': '',
+            'alt': content.column_left.image.large.caption,
+            'images': {
+              'large': TimberImage(content.column_left.image.large['sizes']['large']),
+              'medium': (content.column_left.image.medium) ? TimberImage(content.column_left.image.medium['sizes']['medium']) : TimberImage(content.column_left.image.large['sizes']['medium']),
+              'small': (content.column_left.image.small) ? TimberImage(content.column_left.image.small['sizes']['medium']) : TimberImage(content.column_left.image.large['sizes']['medium'])
+            }
+          } %}
+        {% endif %}
+
+      </div>
+      {% endif %}
+
+      {% if content.column_right.content.title or content.column_right.content.content or content.column_right.image.large %}
+      <div class="col col--{{ content.column_right.width }}@xl">
+        {% if content.column_right.content.title %}
+        <h2>{{ content.column_right.content.title }}</h2>
+        {% endif %}
+
+        {% if content.column_right.content.content %}
+        {{ content.column_right.content.content }}
+        {% endif %}
+
+        {% if content.column_right.content.buttons|length %}
+        {% include 'molecules/button_group.twig' with {
+          'buttons': content.column_right.content.buttons
+        } %}
+        {% endif %}
+
+        {% if content.column_right.image.large %}
+          {% include 'atoms/picture.twig' with {
+            'attr': '',
+            'alt': content.column_right.image.large.caption,
+            'images': {
+              'large': TimberImage(content.column_right.image.large['sizes']['large']),
+              'medium': (content.column_right.image.medium) ? TimberImage(content.column_right.image.medium['sizes']['medium']) : TimberImage(content.column_right.image.large['sizes']['medium']),
+              'small': (content.column_right.image.small) ? TimberImage(content.column_right.image.small['sizes']['medium']) : TimberImage(content.column_right.image.large['sizes']['medium'])
+            }
+          } %}
+        {% endif %}
+
+      </div>
+      {% endif %}
+
+
+    </div>
+  </div>
+  {% include 'helpers/styled_background.twig' with { 'options': content.layout_settings.section_options } %}
+</section>

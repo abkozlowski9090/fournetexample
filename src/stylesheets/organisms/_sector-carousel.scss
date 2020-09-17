@@ -1,0 +1,110 @@
+.sector-carousel {
+  &__wrapper {
+    position: relative;
+    @include media(">xl") {
+      padding-bottom: 100px;
+      padding-right: calc(100px + #{$gridGutter});
+    }
+  }
+  &__nav-panel {
+    padding: 50px;
+    border-bottom-left-radius: $base-border-radius;
+    border-bottom-right-radius: $base-border-radius;
+    width: 90%;
+    margin-left: 5%;
+    transform: translateY(-150PX);
+    @include media(">xl") {
+      border-radius: $base-border-radius;
+      width: 450px;
+      margin: 0;
+      position: absolute;
+      transform: translateY(0);
+      right: $gridGutter/2;
+      bottom: 0;
+
+    }
+  }
+
+  &__images {
+    // margin-bottom: 100px;
+  }
+
+  &__nav {
+    margin-top: 10px;
+  }
+
+  &__nav-desc {
+    display: none;
+    padding: 20px 0 0 0;
+  }
+
+  &__nav-item {
+    opacity: 0.4;
+    margin-top: 20px;
+
+
+    &:hover {
+      opacity: 1;
+    }
+
+    .h3 {
+      text-decoration: none;
+      // color: $indigo;
+    }
+
+    &.is-active {
+      opacity: 1;
+      .sector-carousel__nav-desc {
+        display: block;
+      }
+      .sector-carousel__nav-load-indicator {
+        display: block;
+      }
+      .sector-carousel__nav-load-indicator span {
+        animation: drawlineright 8s linear forwards;
+      }
+    }
+  }
+
+  .sector-carousel__nav-load-indicator {
+    display: none;
+    background: rgba(255,255,255,0.4);
+    margin-top: 10px;
+
+    width: 100%;
+    height: 2PX;
+    position: relative;
+
+    span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: scaleX(0);
+      transform-origin: left;
+      background: $red;
+      width: 100%;
+      height: 100%;
+    }
+
+  }
+
+  &__image {
+    width: 100%;
+    padding-bottom: 120%;
+    background: $lightgrey;
+    @include media(">xl") {
+      padding-bottom: 50%;
+    }
+  }
+}
+
+@keyframes drawlineright {
+  from {transform: scaleX(0);}
+  to {transform: scaleX(1);}
+}
+
+// body.home {
+//   .sector-carousel {
+//     padding-bottom: 0px!important;
+//   }
+// }

@@ -1,0 +1,33 @@
+
+<div class="news-card colour--white {{ (staff_card) ? 'news-card--staff' : '' }} {{ (in_sector) ? 'news-card--sector' : '' }} {{ (is_odd) ? 'news-card--odd' : '' }}">
+  <div class="news-card__wrapper cover-bg">
+    {% if post_info.thumbnail %}
+      {% include 'atoms/picture.twig' with {
+        'alt': post_info.thumbnail.caption,
+        'class_list': 'cover-bg__img',
+        'images': {
+          'large': post_info.thumbnail.src('medium-long')
+        }
+      } %}
+    {% elseif post_info.image|length %}
+      {% include 'atoms/picture.twig' with {
+        'alt': post_info.image.caption,
+        'class_list': 'cover-bg__img',
+        'images': {
+          'large': post_info.image['sizes']['medium']
+        }
+      } %}
+    {% endif %}
+  </div>
+
+  <div class="news-card__content">
+    <p class="{{ (large_card) ? 'h2' : 'h3' }}">{{ post_info.post_title }}</p>
+    <p class="news-card__excerpt">{{ post_info.excerpt }}</p>
+
+    {% include 'molecules/button_group.twig' with {
+      'buttons': buttons
+    } %}
+    <!-- <a class="btn btn--left-icon news-card__btn" href="{{post_info.link}}"> Find out More </a> -->
+  </div>
+
+</div>

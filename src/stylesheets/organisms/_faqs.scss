@@ -1,0 +1,118 @@
+.faqs {
+  input {
+    &::placeholder {
+      color: $grey!important;
+    }
+  }
+
+  .accordion__panel {
+    padding-left: 40px;
+    @include media("<med") {
+      padding-left: 0;
+    }
+  }
+}
+
+.accordion {
+
+    &__button {
+      border-top: 1PX solid $white;
+      width: 100%;
+      display: block;
+      text-align: left;
+      font-size: $h3-font-size;
+      font-family: $header-font;
+      margin-bottom: 15px;
+      padding-top: 15px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+     &--active {
+       .accordion__down-arrow {
+         transform: rotate(180deg);
+       }
+     }
+  }
+
+  &__down-arrow {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    @include media("<med") {
+      float: left;
+    }
+
+    &:before {
+      content: '';
+      display: block;
+      width: 2PX;
+      height: 20PX;
+      background: $red;
+    }
+
+    &:after {
+      content: '';
+      display: block;
+      width: 8PX;
+      height: 8PX;
+      border-right: 2PX solid $red;
+      border-bottom: 2PX solid $red;
+      position: absolute;
+      bottom: 10PX;
+      left: 50%;
+      transform: translateX(-5PX) rotate(45deg);
+    }
+
+    @include media("<med") {
+      &:after {
+        bottom: 4PX;
+      }
+    }
+  }
+
+
+
+
+
+    &__panel {
+      position: relative;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height $speed-2x $easing;
+      z-index: 9999;
+      @include media(">xl") {
+        padding-right: 400px;
+      }
+
+      &--active {
+
+      }
+
+      &--full-width {
+        @include media(">xl") {
+          padding-right: 0;
+        }
+      }
+
+    }
+
+    &__panel-wrapper {
+      padding-bottom: 25px;
+    }
+
+
+
+    li {
+      font-family: $base-font;
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+
+}

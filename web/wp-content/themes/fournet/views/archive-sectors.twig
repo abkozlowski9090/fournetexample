@@ -1,0 +1,39 @@
+{% extends "base.twig" %}
+
+{% block content %}
+{% include 'organisms/page-header.twig' with {
+	'content' : options.sectors_overview.header
+} %}
+
+{% include 'layout-builder.twig' with {
+	'layouts' : options.sectors_overview.sectors_layout_builder
+	} %}
+
+
+<section class="bg--lightgrey dbl-pad-bot bg--{{options.page_background.colour}}">
+	<div class="container">
+    <div class="row">
+				{% for post in posts %}
+	      	<div class="col col--6@med">
+						{% include "molecules/news-card.twig" with {
+							post_info: post,
+							'in_sector': true,
+							'is_odd': loop.index is odd,
+							'large_card': true,
+							'buttons': [
+								{
+							      'button_style': 'btn--left-arrow',
+							      'button': {
+							        'url': post.link,
+							        'title': function('__', 'Learn More')
+							      }
+							  }
+						  ]
+						} %}
+					</div>
+        {% endfor %}
+    </div>
+	</div>
+</section>
+
+{% endblock %}

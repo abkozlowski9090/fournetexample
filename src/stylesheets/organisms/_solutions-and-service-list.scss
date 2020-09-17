@@ -1,0 +1,34 @@
+.solutions-and-service-list {
+  &__header {
+    position: sticky;
+    top: 20px;
+  }
+  &__col {
+    @include media(">xl") {
+      &:nth-child(2) {
+        .solutions-and-service-list__offset-helper {
+          margin-top: 50px;
+        }
+      }
+      &:nth-child(3) {
+        .solutions-and-service-list__offset-helper {
+          margin-top: 100px;
+        }
+      }
+      &:nth-child(4) {
+        .solutions-and-service-list__offset-helper {
+          margin-top: -100px;
+        }
+      }
+      &:nth-child(5) {
+        .solutions-and-service-list__offset-helper {
+          margin-top: -50px;
+        }
+      }
+    }
+
+  }
+  &__offset-wrapper {
+
+  }
+}

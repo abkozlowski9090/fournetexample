@@ -1,0 +1,93 @@
+{% if content.show_background_graphic %}
+<svg opacity="0.5" class="section-background-graphic section-background-graphic--{{ content.styled_elements_colour }}" x="0px" y="0px" preserveAspectRatio="none" viewBox="0 0 1840 1500">
+  <path d="M-3,1174.6l314.1-314.1c4.6-4.6,12-4.6,16.6,0c0,0,0,0,0,0l111.9,111.9c4.6,4.6,4.6,12,0,16.6L-3,1431.8
+    V1174.6z M437.1,1268.5c-35.5-35.5-35.5-93.1,0-128.6c0,0,0,0,0,0l296.2-296.2c35.5-35.5,93.1-35.6,128.6-0.1
+    c35.5,35.5,35.6,93.1,0.1,128.6c0,0,0,0-0.1,0.1l-296.2,296.2C530.2,1304,472.6,1304,437.1,1268.5
+    C437.1,1268.5,437.1,1268.5,437.1,1268.5L437.1,1268.5z M529.8,882.4L417.9,770.4c-6.2-6.2-6.2-16.1,0-22.3c0,0,0,0,0,0l526.3-526.3
+    c6.2-6.1,16.1-6.1,22.3,0l111.9,111.9c6.2,6.2,6.2,16.1,0,22.3c0,0,0,0,0,0L552.1,882.4C546,888.5,536,888.5,529.8,882.4
+    C529.8,882.4,529.8,882.4,529.8,882.4L529.8,882.4z M949.8,227.5L423.5,753.8c-3,3-3,7.9,0,11c0,0,0,0,0,0l112,111.9c3,3,7.9,3,11,0
+    l526.3-526.3c3-3,3-7.9,0-11l-111.9-112C957.8,224.5,952.9,224.5,949.8,227.5L949.8,227.5z M916.4,691.1c0-54.2,43.9-98.1,98.1-98.1
+    s98.1,43.9,98.1,98.1s-43.9,98.1-98.1,98.1c0,0,0,0,0,0C960.4,789.2,916.4,745.3,916.4,691.1z M243.9,554.2
+    c0-56.4,45.7-102.1,102.1-102.1c56.4,0,102.1,45.7,102.1,102.1S402.4,656.2,346,656.2c0,0,0,0,0,0
+    C289.6,656.2,244,610.5,243.9,554.2z M251.9,554.2c0,52,42.1,94.1,94.1,94.1c52,0,94.1-42.1,94.1-94.1c0-52-42.1-94.1-94.1-94.1
+    C294.1,460.1,252,502.2,251.9,554.2z M1839.8,0l-598.7,598.8c-5.3,5.3-14,5.3-19.3,0c0,0,0,0,0,0l-114.9-114.9
+    c-5.3-5.3-5.3-14,0-19.3c0,0,0,0,0,0L1581,0h11.3l-479.9,470.2c-2.2,2.2-2.2,5.8,0,8l114.9,114.9c2.2,2.2,5.8,2.2,8,0L1828.4,0
+    H1839.8z M1155.4,266.3L1034,144.9c-2-2-2-5.2,0-7.2c0,0,0,0,0,0L1169.7,2l0,0c2-2,5.2-2,7.2,0c0,0,0,0,0,0l121.4,121.4
+    c2,2,2,5.2,0,7.2l-135.7,135.7C1160.6,268.3,1157.4,268.3,1155.4,266.3L1155.4,266.3z"/>
+</svg>
+{% endif %}
+
+
+{% if content.title %}
+<section class="page-header {{ (content.show_background_graphic or content.crop_image_diagonally) ? 'page-header--has-bg-graphic' : '' }} {{ (content.image.large or content.video_background) ? 'page-header--has-image' : 'page-header--no-image' }} {{ (content.icon_image) ? 'page-header--has-icon-image' : '' }} {% include 'helpers/section_classes.twig' with {
+   'options': {
+    'background_colour': content.background_colour,
+    'text_colour': content.text_colour
+   }
+} %}">
+  <div class="container">
+    <div class="row {{ (content.split_content_into_2_columns) ? 'row--justify-between' : '' }} {{ (content.crop_image_diagonally or content.image.large) ? 'row--reverse-cols' : '' }}">
+      <div class="col {{ (content.crop_image_diagonally or content.image.large) ? 'col--5@xl' : 'col--10@xl' }}">
+        {% if content.add_icon == true %}
+        <div class="page-header__icon">
+          {% include 'atoms/icon.twig' with {
+            'icon': content.icon_options.icon,
+            'class_list': "page-header__icon--icon-#{colour.icon_colour}"
+          } %}
+        </div>
+        {% endif %}
+
+        <h1 {{ (is_front or content.image.large) ? 'class="h1-alt"' : '' }}>{{ content.title }}</h1>
+
+        {% if content.split_content_into_2_columns %}
+        </div><div class="col {{ (content.crop_image_diagonally or content.image.large) ? 'col--5@xl' : 'col--6@xl' }}">
+        {% endif %}
+
+        {{ content.content }}
+        {% include 'molecules/button_group.twig' with {
+          'buttons': content.buttons
+        } %}
+      </div>
+    </div>
+  </div>
+  {% if content.video_background %}
+    <video src="{{ content.video.url }}" class="cover-bg__img" autoplay loop></video>
+  {% endif %}
+  {% if content.image.large %}
+    {% include 'atoms/picture.twig' with {
+      'class_list': (content.crop_image_diagonally) ? 'page-header__image page-header__image--masked' : 'page-header__image',
+      'attr': '',
+      'alt': content.image.large.caption,
+      'images': {
+        'large': TimberImage(content.image.large['sizes']['large']),
+        'large_retina': TimberImage(content.image.large['sizes']['large']),
+        'medium': (content.image.medium) ? TimberImage(content.image.medium['sizes']['large']) : TimberImage(content.image.large['sizes']['large']),
+        'small': (content.image.small) ? TimberImage(content.image.small['sizes']['large']) : TimberImage(content.image.large['sizes']['large'])
+      }
+    } %}
+
+    <svg class="page-header__mask-svg" width="900" height="800" preserveAspectRatio="xMidYMid meet">
+      <clipPath id="pageHeaderImageMask" >
+        <polygon points="0 800, 0 0, 900 0, 0 900" />
+        <!-- <path d="M0,865V0h865L0,865z" /> -->
+      </clipPath>
+    </svg>
+  {% endif %}
+
+
+
+  {% if content.crop_image_diagonally or content.crop_video_diagonally %}
+  <svg class="page-header__content-bg" width="1440" height="750" viewBox="0 0 1440 750">
+    <path fill="rgba(0,0,0,0.5)" d="M797.8,749.5l326.6-326.6c5.2-5.2,13.5-5.2,18.7,0l296.4,296.4v30.3H797.8z M0.5,749.5V507.3L507.3,0.5h668.3l-749,749H0.5z"/>
+  </svg>
+  {% endif %}
+
+
+
+
+
+</section>
+
+
+
+{% endif %}

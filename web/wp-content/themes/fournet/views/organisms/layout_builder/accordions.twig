@@ -1,0 +1,56 @@
+<section {% include 'helpers/section_id.twig' with { 'id': content.layout_settings.section_options.id } %} class="accordions {% include 'helpers/section_classes.twig' with { 'options': content.layout_settings.section_options } %}">
+  <div class="container">
+    {% if content.title or content.intro %}
+    <div class="row row--pad-bot">
+      <div class="col col--4@xl">
+        {{ (content.title) ? '<p class="h2">'~ content.title ~'</p>' : '' }}
+        {{ (content.intro) ? '<p>'~ content.intro ~'</p>' : '' }}
+      </div>
+    </div>
+    {% endif %}
+    {% for accordion in content.accordion %}
+    <div class="accordions__accordion {{ (accordion.hide_accordion) ? 'accordions__accordion--hide' : '' }}">
+      {% if(not accordion.hide_accordion) %}
+      <button class="accordions__accordion-trigger reset-button" {{ (accordion.hide_accordion) ? '' : 'data-module="faq"' }}>
+      {% endif %}
+        <div class="row {{ (not accordion.hide_accordion) ? 'row--align-v-end' : '' }}">
+          <div class="col col--4@xl">
+            {% if accordion.icon %}
+            {% include 'atoms/icon.twig' with {
+              'icon': accordion.icon
+            } %}
+            {% endif %}
+            <p class="h2">{{ accordion.title }}</p>
+          </div>
+          <div class="col col--6@xl">
+            <p>{{ accordion.intro }}</p>
+            {% include 'molecules/button_group.twig' with {
+              'buttons': accordion.buttons
+            } %}
+
+          </div>
+          <div class="col col--2@xl text--right">
+            <span class="accordion__down-arrow"></span>
+          </div>
+        </div>
+      {% if(not accordion.hide_accordion) %}
+      </button>
+      {% endif %}
+      <div class="accordion__panel accordion__panel--full-width">
+        <div class="accordion__panel-wrapper">
+          <div class="row row--pad-top">
+            <div class="col col-offset--4@xl col--6@xl">
+              {{ accordion.full_content }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    {% endfor %}
+  </div>
+  {% include 'helpers/styled_background.twig' with { 'options': content.layout_settings.section_options } %}
+</section>

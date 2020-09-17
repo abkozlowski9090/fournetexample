@@ -1,0 +1,91 @@
+// .jobs {
+//   color: $black;
+//   padding: 30px;
+//
+//   &__wrapper {
+//     display: flex;
+//     justify-content: space-around;
+//     align-items: center;
+//   }
+//
+//   &__titles {
+//     width: 19%;
+//   }
+//
+//   &__short-description {
+//     width: 50%;
+//     margin-left: auto;
+//     margin-right: auto;
+//   }
+//
+//   &__btns {
+//     position: absolute;
+//     right: 50px;
+//     z-index: 9999;
+//     color: $white!important;
+//
+//     &:nth-child(2) {
+//       top: 100px;
+//     }
+//   }
+//
+//   .jobs__button--active {
+//     top: auto!important;
+//     bottom: 100px!important;
+//     z-index: 9999;
+//   }
+//
+//   .apply__button--active {
+//     top: auto!important;
+//     bottom: 20px!important;
+//     z-index: 9999;
+//   }
+//
+//   &__accordion {
+//     position: relative;
+//     display: flex;
+//     flex-direction: column;
+//   }
+//
+//   &__panel-wrapper {
+//     display: flex;
+//     justify-content: space-between;
+//     padding-bottom: 25px;
+//   }
+//
+//   &__main-content {
+//     margin-left: auto;
+//     width: 54%;
+//     margin-right: 25px;
+//   }
+//
+//   .accordion {
+//     background: $indigo;
+//     color: $white;
+//     padding: 30px;
+//     height: 100%;
+//   }
+//
+//   .accordion__button {
+//     border-top: 0px;
+//     transform: rotate(90deg);
+//   }
+//
+//   .btn--left-arrow::before {
+//     width: 15PX;
+//     height: 15PX;
+//   }
+//
+//   .btn--left-arrow::after {
+//     left: 0PX;
+//     top: 22PX;
+//     width: 27PX;
+//   }
+//
+//   .accordion__panel {
+//     padding-right: 0px!important;
+//     margin-top: 40px;
+//     z-index: 1;
+//   }
+//
+// }

@@ -1,0 +1,34 @@
+<section {% include 'helpers/section_id.twig' with { 'id': content.layout_settings.section_options.id } %} class="sector-carousel {% include 'helpers/section_classes.twig' with { 'options': content.layout_settings.section_options } %}">
+  <div class="container">
+    <div class="sector-carousel__wrapper">
+
+      <div class="sector-carousel__images">
+        <div class="sector-carousel__image carousel-cell cover-bg">
+          {% include 'atoms/picture.twig' with {
+            'class_list': 'cover-bg__img',
+            'attr': '',
+            'alt': content.image.large.caption,
+            'images': {
+              'large': TimberImage(content.image.large['sizes']['large']),
+              'large_retina': TimberImage(content.image.large['sizes']['large']),
+              'medium': (content.image.medium) ? TimberImage(content.image.medium['sizes']['large']) : TimberImage(content.image.large['sizes']['large']),
+              'small': (content.image.small) ? TimberImage(content.image.small['sizes']['medium']) : TimberImage(content.image.large['sizes']['medium'])
+            }
+          } %}
+        </div>
+      </div>
+
+      <div class="sector-carousel__nav-panel bg--sapphire colour--white">
+        <p class="h2">{{ content.title }}</p>
+        {{ content.content }}
+        {% include 'molecules/button_group.twig' with {
+          'buttons': content.buttons
+        } %}
+
+
+      </div>
+
+    </div>
+  </div>
+  {% include 'helpers/styled_background.twig' with { 'options': content.layout_settings.section_options } %}
+</section>

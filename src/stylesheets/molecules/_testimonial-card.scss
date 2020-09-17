@@ -1,0 +1,17 @@
+.testimonial-card {
+  border-radius: $base-border-radius;
+  overflow: hidden;
+  padding: 80px 60px;
+
+  @include media(">wide") {
+    padding: 40px 60px;
+    padding-right: 100px;
+
+  }
+
+  &__logo {
+    margin-bottom: 50px;
+    max-width: 110px;
+  }
+
+}

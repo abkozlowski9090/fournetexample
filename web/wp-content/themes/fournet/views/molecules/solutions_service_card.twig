@@ -1,0 +1,12 @@
+<a href="{{ content.link }}" title="{{ content.title }}" class="solutions-service-card" data-emergence="hidden">
+  <img class="solutions-service-card__bg" src="{{ TimberImage(content.get_field('thumbnail_background')['sizes']['large-square']) }}" alt="">
+  <div class="solutions-service-card__content bg--white">
+    <p>{{ content.get_field('type')|capitalize }}</p>
+    <p class="h3">{{ content.title }}</p>
+    <div class="solutions-service-card__desc">
+      <p>{{ content.get_field('excerpt') }}</p>
+    </div>
+    <span href="{{ content.link }}" class="btn btn--left-arrow">{{ function('__', 'Learn More') }}</span>
+  </div>
+
+</a>

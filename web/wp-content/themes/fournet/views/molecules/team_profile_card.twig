@@ -1,0 +1,34 @@
+<div class="team-profile-card" data-module="teamprofile">
+  <div class="team-profile-card__image">
+    {% if content.image %}
+      {% include 'atoms/picture.twig' with {
+        'alt': content.image.caption,
+        'class_list': 'carousel-cell-image cover-bg__img js-toggle-lightbox-button',
+        'images': {
+          'large': content.image['sizes']['medium']
+        }
+      } %}
+    {% endif %}
+  </div>
+
+  {{ (content.label) ? '<p>' ~ content.label ~ '</p>' : '' }}
+  {{ (content.name) ? '<p class="h3">' ~ content.name ~ '</p>' : '' }}
+  <span class="btn btn--left-arrow js-toggle-lightbox-button"><span>View profile</span></span>
+
+  <div class="js-profile-lightbox">
+    <div class="team-profile-card__lightbox">
+      {% include 'atoms/picture.twig' with {
+        'alt': content.image.caption,
+        'images': {
+          'large': content.image['sizes']['medium']
+        }
+      } %}
+      <div class="content">
+        {{ (content.label) ? '<p>' ~ content.label ~ '</p>' : '' }}
+        {{ (content.name) ? '<p class="h3">' ~ content.name ~ '</p>' : '' }}
+        {{ content.bio }}
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,33 @@
+.bottom-bar {
+
+
+  &__copyright {
+    width: 100%;
+    @include media(">med") {
+      display: flex;
+      align-items: flex-start;
+    }
+  }
+
+  p {
+    color: darken($grey, 20%);
+    margin: 0px 20px 0px 0px;
+    font-size: $small-font-size;
+
+    &:last-child {
+      margin-right: 0px;
+    }
+  }
+
+  &__logo {
+    display: inline-block;
+    width: 80px;
+
+
+    &--png {
+      width: 130px;
+      height: auto;
+      margin-right: 20px;
+    }
+  }
+}

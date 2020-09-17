@@ -1,0 +1,109 @@
+&--12 {
+
+    &\@xl {
+      @include media(">xl") {
+        // width: 100%;
+        width: calc(100% * 12/12 - (#{$gridGutter} * 12/12));
+      }
+    }
+
+}
+&--11 {
+
+    &\@xl {
+      @include media(">xl") {
+        width: calc(100% * 11/12 - (#{$gridGutter*2} * 11/12));
+      }
+    }
+
+}
+&--10 {
+
+    &\@xl {
+      @include media(">xl") {
+        width: calc(100% * 10/12 - (#{$gridGutter*2} * 10/12));
+      }
+    }
+
+}
+&--9 {
+
+    &\@xl {
+      @include media(">xl") {
+        width: calc(100% * 9/12 - (#{$gridGutter*2} * 9/12));
+      }
+    }
+
+}
+&--8 {
+
+    &\@xl {
+      @include media(">xl") {
+        width: calc(100% * 8/12 - (#{$gridGutter*2} * 8/12));
+      }
+    }
+
+}
+&--7 {
+
+    &\@xl {
+      @include media(">xl") {
+        width: calc(100% * 7/12 - (#{$gridGutter*2} * 7/12));
+      }
+    }
+
+}
+&--6 {
+
+    &\@xl {
+      @include media(">xl") {
+        width: calc(100% * 6/12 - (#{$gridGutter*2} * 6/12));
+      }
+    }
+
+}
+&--5 {
+
+    &\@xl {
+      @include media(">xl") {
+        width: calc(100% * 5/12 - (#{$gridGutter*2} * 5/12));
+      }
+    }
+
+}
+&--4 {
+
+    &\@xl {
+      @include media(">xl") {
+        width: calc(100% * 4/12 - (#{$gridGutter*3} * 4/12));
+      }
+    }
+
+}
+&--3 {
+
+    &\@xl {
+      @include media(">xl") {
+        width: calc(100% * 3/12 - (#{$gridGutter*4} * 3/12));
+      }
+    }
+
+}
+&--2 {
+
+    &\@xl {
+      @include media(">xl") {
+        width: calc(100% * 2/12 - (#{$gridGutter*6} * 2/12));
+      }
+    }
+
+}
+&--1 {
+
+    &\@xl {
+      @include media(">xl") {
+        width: calc(100% * 1/12 - (#{$gridGutter*2} * 1/12));
+      }
+    }
+
+}

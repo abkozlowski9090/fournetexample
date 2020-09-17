@@ -1,0 +1,10 @@
+<svg id="Group_658" data-name="Group 658" xmlns="http://www.w3.org/2000/svg" width="50.632" height="73.949" viewBox="0 0 50.632 73.949">
+  <g id="Group_658-2" data-name="Group 658" transform="translate(46.196 69.304)">
+    <path id="Path_402" data-name="Path 402" d="M562.491,914.934a2.17,2.17,0,0,1,2.218,2.212,2.218,2.218,0,1,1-4.436,0A2.155,2.155,0,0,1,562.491,914.934Zm0,4.072a1.776,1.776,0,0,0,1.734-1.86,1.735,1.735,0,1,0-3.468,0A1.76,1.76,0,0,0,562.491,919.006Zm-.9-2.94h1.024c.547,0,.836.264.836.691a.7.7,0,0,1-.471.654l.547.817h-.547l-.471-.754H562.1v.754h-.509Zm.509.415v.585h.5c.227,0,.346-.12.346-.3s-.119-.283-.346-.283Z" transform="translate(-560.273 -914.934)" fill="#fff"/>
+  </g>
+  <g id="Group_659" data-name="Group 659" transform="translate(0 0)">
+    <rect id="Rectangle_1271" data-name="Rectangle 1271" width="52.987" height="12.55" rx="1.138" transform="matrix(0.707, -0.707, 0.707, 0.707, 0, 37.467)" fill="#fff"/>
+    <rect id="Rectangle_1272" data-name="Rectangle 1272" width="13.944" height="12.55" rx="1.138" transform="translate(27.608 65.075) rotate(-45)" fill="#fff"/>
+    <rect id="Rectangle_1273" data-name="Rectangle 1273" width="52.987" height="12.55" rx="1.138" transform="matrix(0.707, -0.707, 0.707, 0.707, 0, 65.075)" fill="#fff"/>
+  </g>
+</svg>

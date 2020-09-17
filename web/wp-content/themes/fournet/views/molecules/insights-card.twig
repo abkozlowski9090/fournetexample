@@ -1,0 +1,32 @@
+
+<div class="insights-card colour--white ">
+    {% if wide == true %}
+    <div class="insights-card__wrapper insights-card__wrapper--wide cover-bg">
+      {% include 'atoms/picture.twig' with {
+        'alt': post_info.thumbnail.caption,
+        'class_list': 'cover-bg__img',
+        'images': {
+          'large': post_info.thumbnail.src('wide-image')
+        }
+      } %}
+    </div>
+    {% else %}
+    <div class="insights-card__wrapper cover-bg">
+    {% include 'atoms/picture.twig' with {
+        'alt': post_info.thumbnail.caption,
+        'class_list': 'cover-bg__img',
+        'images': {
+          'large': post_info.thumbnail.src('medium-long')
+        }
+      } %}
+    </div>
+    {% endif %}
+
+  <div class="insights-card__content">
+    <p class="{{ (large_card) ? 'h2' : 'h3' }}">{{ post_info.post_title }}</p>
+    <p class="insights-card__excerpt">{{ post_info.excerpt }}</p>
+    <a class="btn btn--left-arrow news-card__btn" href="{{post_info.link}}"> Find out More </a>
+
+  </div>
+
+</div>

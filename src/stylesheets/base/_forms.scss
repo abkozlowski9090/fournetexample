@@ -1,0 +1,48 @@
+form {
+  label {
+    display: block;
+    margin: 0 0 10px 0;
+  }
+
+  textarea,
+  input:not([type="file"]):not([type="checkbox"]):not([type="radio"]) {
+    border: none;
+    background: $lightgrey;
+    color: $sapphire;
+    // border-bottom: 2PX solid black;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    padding: 0 10px;
+    // padding-bottom: 10px;
+    border-left: 0px;
+    font-size: 14px;
+    height: 40px;
+    width: 100%;
+  }
+
+  textarea {
+    resize: none;
+    height: auto;
+    padding: 10px;
+  }
+
+  span.wpcf7-list-item {
+    margin: 0;
+  }
+
+  span.wpcf7-not-valid-tip {
+    font-size: 12px;
+    padding: 10px 15px;
+    background: $red;
+    color: $white;
+  }
+
+  div.wpcf7-validation-errors, div.wpcf7-acceptance-missing {
+    border: none;
+    padding: 10px 20px;
+    background: $red;
+    color: $white;
+    margin: 20px 0 0 0;
+  }
+}

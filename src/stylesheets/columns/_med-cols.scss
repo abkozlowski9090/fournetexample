@@ -1,0 +1,109 @@
+&--12 {
+
+    &\@med {
+      @include media(">med") {
+        // width: 100%;
+        width: calc(99.99% * 12/12 - (#{$gridGutter} * 12/12));
+      }
+    }
+
+}
+&--11 {
+
+    &\@med {
+      @include media(">med") {
+        width: calc(99.99% * 11/12 - (#{$gridGutter*2} * 11/12));
+      }
+    }
+
+}
+&--10 {
+
+    &\@med {
+      @include media(">med") {
+        width: calc(99.99% * 10/12 - (#{$gridGutter*2} * 10/12));
+      }
+    }
+
+}
+&--9 {
+
+    &\@med {
+      @include media(">med") {
+        width: calc(99.99% * 9/12 - (#{$gridGutter*2} * 9/12));
+      }
+    }
+
+}
+&--8 {
+
+    &\@med {
+      @include media(">med") {
+        width: calc(99.99% * 8/12 - (#{$gridGutter*2} * 8/12));
+      }
+    }
+
+}
+&--7 {
+
+    &\@med {
+      @include media(">med") {
+        width: calc(99.99% * 7/12 - (#{$gridGutter*2} * 7/12));
+      }
+    }
+
+}
+&--6 {
+
+    &\@med {
+      @include media(">med") {
+        width: calc(99.99% * 6/12 - (#{$gridGutter*2} * 6/12));
+      }
+    }
+
+}
+&--5 {
+
+    &\@med {
+      @include media(">med") {
+        width: calc(99.99% * 5/12 - (#{$gridGutter*4} * 5/12));
+      }
+    }
+
+}
+&--4 {
+
+    &\@med {
+      @include media(">med") {
+        width: calc(99.99% * 4/12 - (#{$gridGutter*3} * 4/12));
+      }
+    }
+
+}
+&--3 {
+
+    &\@med {
+      @include media(">med") {
+        width: calc(99.99% * 3/12 - (#{$gridGutter*4} * 3/12));
+      }
+    }
+
+}
+&--2 {
+
+    &\@med {
+      @include media(">med") {
+        width: calc(99.99% * 2/12 - (#{$gridGutter*2} * 2/12));
+      }
+    }
+
+}
+&--1 {
+
+    &\@med {
+      @include media(">med") {
+        width: calc(99.99% * 1/12 - (#{$gridGutter*2} * 1/12));
+      }
+    }
+
+}

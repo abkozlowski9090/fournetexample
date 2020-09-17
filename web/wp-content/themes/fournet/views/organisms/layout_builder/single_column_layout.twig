@@ -1,0 +1,28 @@
+<section {% include 'helpers/section_id.twig' with { 'id': content.layout_settings.section_options.id } %} class="columns {% include 'helpers/section_classes.twig' with { 'options': content.layout_settings.section_options } %}">
+  <div class="container">
+    <div class="row row--justify-center">
+
+      {% if content.column.content.title or content.column.content.content or content.column.image.large %}
+      <div class="col col--{{ content.column.width }}@xl">
+        {% if content.column.content.title %}
+        <h2>{{ content.column.content.title }}</h2>
+        {% endif %}
+
+        {% if content.column.content.content %}
+        {{ content.column.content.content }}
+        {% endif %}
+
+        {% if content.column.content.buttons|length %}
+        {% include 'molecules/button_group.twig' with {
+          'buttons': content.column.content.buttons
+        } %}
+        {% endif %}
+
+      </div>
+      {% endif %}
+
+
+    </div>
+  </div>
+  {% include 'helpers/styled_background.twig' with { 'options': content.layout_settings.section_options } %}
+</section>

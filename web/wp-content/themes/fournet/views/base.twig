@@ -1,0 +1,51 @@
+{% block html_head %}
+	{% include 'html-header.twig' %}
+	{% block head %}
+	{% endblock %}
+	</head>
+{% endblock %}
+
+{% set post_bg_colour = post.page_background_colour %}
+
+{% if function('is_post_type_archive', 'benefits') %}
+
+	{% set post_bg_colour = options.benefits_overview_options.page_background_colour %}
+
+{% endif %}
+
+{% if function('is_post_type_archive', 'sectors') %}
+
+	{% set post_bg_colour = options.sectors_overview_options.page_background_colour %}
+
+{% endif %}
+
+{% if function('get_post_type') == 'jobs' or function('get_post_type') == 'post' or function('is_post_type_archive', 'post') %}
+
+	{% set post_bg_colour = 'white' %}
+
+{% endif %}
+
+	<body class="{{ body_class }} nav-closed colour--black {{ (post_bg_colour) ? 'bg--' ~ post_bg_colour : '' }}" data-template="base.twig" data-svg-sprite="{{ theme.link }}/assets/images/icons.svg" data-svg-sprite-revision="{{ svg_sprite_version }}">
+		<div id="basicLightbox">
+
+		</div>
+		{%
+		include 'organisms/site-header.twig'
+		%}
+
+		<main role="main" class="site-main" id="js-site-main">
+			{% block content %}
+				Sorry, no content
+			{% endblock %}
+		</main>
+
+		{%
+			include 'organisms/site_footer.twig'
+		%}
+
+		{{ function('wp_footer') }}
+
+
+
+	</body>
+</html>

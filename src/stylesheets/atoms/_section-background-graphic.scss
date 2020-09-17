@@ -1,0 +1,37 @@
+.section-background-graphic-wrap {
+  position: absolute;
+  width: 100%;
+  overflow: hidden;
+  height: 200%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+.section-background-graphic {
+  position: absolute;
+  left: 0;
+  top: 30PX;
+  z-index: 1;
+  pointer-events: none;
+  max-width: 1300PX;
+  // width: 100vw;
+  // height: 100vw;
+
+  &--page-header {
+    top: -280PX;
+    // right: -420PX;
+    left: 0;
+    width: 1700PX;
+    max-width: none;
+  }
+
+  @include media("<med") {
+    width: 200vw;
+  }
+
+  @each $name, $color in $colorMap {
+    &--#{$name} {
+      fill: $color;
+    }
+  }
+}

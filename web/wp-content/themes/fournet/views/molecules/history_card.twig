@@ -1,0 +1,38 @@
+<div class="team-profile-card" {{ (content.lightbox) ? 'data-module="teamprofile"' : '' }}>
+  <div class="team-profile-card__image team-profile-card__image--tall">
+    {% if content.image %}
+      {% include 'atoms/picture.twig' with {
+        'alt': content.image.caption,
+        'class_list': 'carousel-cell-image cover-bg__img js-toggle-lightbox-button',
+        'images': {
+          'large': content.image['sizes']['medium']
+        }
+      } %}
+    {% endif %}
+    {{ (content.year) ? '<div class="team-profile-card__year colour--white"><p class="h2">' ~ content.year ~ '</p></div>' : '' }}
+  </div>
+
+  {{ (content.title) ? '<p class="h3">' ~ content.title ~ '</p>' : '' }}
+  {{ (content.description) ? '<p>' ~ content.description ~ '</p>' : '' }}
+
+{% if content.lightbox %}
+  <div class="js-profile-lightbox">
+  <div class="team-profile-card__lightbox">
+    {% include 'atoms/picture.twig' with {
+      'alt': content.image.caption,
+      'images': {
+        'large': content.image['sizes']['medium']
+      }
+    } %}
+    <div class="content">
+      {{ (content.label) ? '<p>' ~ content.label ~ '</p>' : '' }}
+      {{ (content.name) ? '<p class="h3">' ~ content.name ~ '</p>' : '' }}
+      {{ content.light_box_content }}
+    </div>
+  </div>
+</div>
+{% endif %}
+
+
+
+</div>

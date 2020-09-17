@@ -1,0 +1,40 @@
+<section {% include 'helpers/section_id.twig' with { 'id': content.layout_settings.section_options.id } %} class="accordions {% include 'helpers/section_classes.twig' with { 'options': content.layout_settings.section_options } %}">
+  <div class="container">
+    <div class="row row--pad-bot">
+      <div class="col col--4@xl">
+        {{ (content.title) ? '<p class="h2">'~ content.title ~'</p>' : '' }}
+        {{ (content.intro) ? '<p>'~ content.intro ~'</p>' : '' }}
+      </div>
+    </div>
+    {% for job in content.job %}
+
+    <div class="jobs accordions__accordion colour--sapphire">
+      <div class="row row--align-v-end">
+        <div class="col col--4@xl">
+          <p class="h2">{{ job.title }}</p>
+          {% if job.location %}
+            <p class="h3">{{job.location}}</p>
+          {% endif %}
+        </div>
+        <div class="col col--6@xl">
+          <p>{{ job.short_description }}</p>
+        </div>
+        <div class="col col--2@xl text--right">
+          {% include 'atoms/btn.twig' with {
+            'button_style': 'btn--red',
+            'link': {
+              'url': job.link,
+              'title': function('__', 'Read More', 'fournet')
+            }
+          } %}
+
+        </div>
+      </div>
+    </div>
+
+
+
+    {% endfor %}
+  </div>
+  {% include 'helpers/styled_background.twig' with { 'options': content.layout_settings.section_options } %}
+</section>

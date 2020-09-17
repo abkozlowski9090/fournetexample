@@ -1,0 +1,82 @@
+{% set hover_version = false %}
+{% set num_descriptions = 0 %}
+{% for slide in content.slides %}
+{% if slide.description %}
+  {% set num_descriptions = num_descriptions + 1 %}
+{% endif %}
+{% endfor %}
+{% if num_descriptions == 0 %}
+  {% set hover_version = true %}
+{% endif %}
+
+<section {% include 'helpers/section_id.twig' with { 'id': content.layout_settings.section_options.id } %} data-module="sectorcarousel"  class="sector-carousel {{ (hover_version) ? 'js-hover-only' : '' }} {% include 'helpers/section_classes.twig' with { 'options': content.layout_settings.section_options } %}">
+  <div class="container">
+    <div class="sector-carousel__wrapper">
+
+      <div class="sector-carousel__images js-image-carousel">
+        {% for slide in content.slides %}
+        <div class="sector-carousel__image carousel-cell cover-bg">
+          {% include 'atoms/picture.twig' with {
+            'class_list': 'cover-bg__img',
+            'attr': '',
+            'alt': slide.image.large.caption,
+            'images': {
+              'large': TimberImage(slide.image.large['sizes']['large']),
+              'large_retina': TimberImage(slide.image.large['sizes']['large']),
+              'medium': (slide.image.medium) ? TimberImage(slide.image.medium['sizes']['large']) : TimberImage(slide.image.large['sizes']['large']),
+              'small': (slide.image.small) ? TimberImage(slide.image.small['sizes']['medium']) : TimberImage(slide.image.large['sizes']['medium'])
+            }
+          } %}
+        </div>
+        {% endfor %}
+      </div>
+
+      <div class="sector-carousel__nav-panel bg--sapphire colour--white">
+        <p class="h2">{{ content.title }}</p>
+        <p>{{ content.description }}</p>
+        {% if content.view_all_button %}
+          <div class="colour--red">
+          {% include 'atoms/btn.twig' with {
+              'button_style': 'btn--left-arrow',
+              'link': {
+                'url': content.link.url,
+                'title': content.link.title
+              }
+            } %}
+          </div>
+        {% endif %}
+
+
+        <div class="sector-carousel__nav">
+          {% for slide in content.slides %}
+          <div class="sector-carousel__nav-item js-nav-item {{ (loop.first) ? 'is-active' : '' }}">
+            {% if slide.description %}
+              <p class="h3 js-slide-title" data-slide-num="{{ loop.index0 }}">{{ slide.title }}</p>
+              <div class="sector-carousel__nav-desc">
+                <p>{{ slide.description }}</p>
+                <p class="colour--red">{% include 'atoms/btn.twig' with {
+                  'button_style': 'btn--left-arrow',
+                  'link': {
+                    'url': slide.link.url,
+                    'title': slide.link.title
+                  }
+                } %}</p>
+              </div>
+            {% else %}
+              <a href="{{ slide.link.url }}" class="h3 js-slide-title js-direct-link {{ (hover_version) ? 'js-hover-version' : '' }}" data-slide-num="{{ loop.index0 }}">{{ slide.title }}</a>
+            {% endif %}
+
+            {% if content.slides|length > 1 and not hover_version %}
+            <div class="sector-carousel__nav-load-indicator"><span></span></div>
+            {% endif %}
+          </div>
+          {% endfor %}
+        </div>
+
+
+      </div>
+
+    </div>
+  </div>
+  {% include 'helpers/styled_background.twig' with { 'options': content.layout_settings.section_options } %}
+</section>
